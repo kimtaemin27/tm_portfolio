@@ -1,4 +1,5 @@
 import './App.css';
+import './path/Css/Header/TopHeader.css'
 import styled from 'styled-components';
 import Information from './path/information';
 import TopHeader from './path/Js/Header/TopHeader';
