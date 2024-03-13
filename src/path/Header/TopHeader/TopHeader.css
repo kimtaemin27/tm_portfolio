@@ -9,3 +9,8 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+.name_line{
+    font-size: 26px;
+    font-weight: bold;
+}
