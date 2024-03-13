@@ -1,7 +1,7 @@
 import './App.css';
 import styled from 'styled-components';
 import Information from './path/information';
-import TopHeader from './path/TopHeader';
+import TopHeader from './path/Header/TopHeader';
 
 function App() {
     return (

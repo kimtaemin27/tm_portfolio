@@ -5,9 +5,17 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: "NanumSquareR";
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: "NanumSquareR";
+  font-weight: normal;
+  src: url("./path/Fonts/NanumSquareR.otf") format("truetype");
+}
+
