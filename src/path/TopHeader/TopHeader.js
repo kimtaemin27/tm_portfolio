@@ -3,7 +3,7 @@ import './TopHeader.css'
 
 const TopHeader = () => {
     return <>
-        <div name="headerOutter">
+        <div class="headerOutter">
             qwqwqw
         </div>
     </>
