@@ -1,7 +1,7 @@
 import './TopHeader.css'
 
 
-const TopHeader = () => {
+export default function TopHeader() {
     return <>
         <div class="headerOutter">
             qwqwqw
@@ -9,5 +9,3 @@ const TopHeader = () => {
     </>
 }
 
-
-export default TopHeader;
