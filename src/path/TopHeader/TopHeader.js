@@ -3,9 +3,11 @@ import './TopHeader.css'
 
 export default function TopHeader() {
     return <>
-        <div class="headerOutter">
-            qwqwqw
-        </div>
+        <header class="headerOutter">
+            <section class="headerSection_1">
+                qwqwqw
+            </section>
+        </header>
     </>
 }
 
