@@ -1,13 +1,13 @@
-.headerOutter{
-    width: 1920px;
-    height: 80px;
-    background-color: cornflowerblue;
+.outter{
+    width: 100%;
+    background-color: black;
 }
 
-.headerSection_1{
+.headerOutter{
     width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    height: 80px;
+    background-color: cornflowerblue;
+    margin: 0 auto;
 }
 
 .name_line{
