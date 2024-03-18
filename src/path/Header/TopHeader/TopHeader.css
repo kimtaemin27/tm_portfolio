@@ -1,9 +1,9 @@
-.outter{
+.outter {
     width: 100%;
     background-color: cornflowerblue;
 }
 
-.headerOutter{
+.header_outter {
     width: 1200px;
     height: 80px;
     background-color: blanchedalmond;
@@ -29,7 +29,7 @@
     transition: color 0.5s;
 }
 
-.menu_line a{
+.menu_line a {
     margin-right: 10px;
 }
 

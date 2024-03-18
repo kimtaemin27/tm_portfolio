@@ -4,7 +4,7 @@ import './TopHeader.css'
 export default function TopHeader() {
     return <>
         <header class="outter">
-            <section class="headerOutter">
+            <section class="header_outter">
                 <div class="name_line">
                     <a>TAEMIN PORTFOLIO</a>
                 </div>
