@@ -1,0 +1,40 @@
+.outter {
+    width: 100%;
+    background-color: cornflowerblue;
+    position: fixed;
+    top: 0px;
+}
+
+.header_outter {
+    width: 1200px;
+    height: 80px;
+    background-color: blanchedalmond;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.name_line, .menu_line {
+    font-size: 26px;
+    font-weight: bold;
+    color: black;
+}
+
+.name_line {
+    margin-left: 20px; 
+    text-align: left; 
+}
+
+.menu_line {
+    text-align: right; 
+    transition: color 0.5s;
+}
+
+.menu_line a {
+    margin-right: 20px;
+}
+
+.menu_line a:hover {
+    color: #EB7100; 
+}

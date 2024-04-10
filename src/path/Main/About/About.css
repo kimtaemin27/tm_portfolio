@@ -1,0 +1,34 @@
+.information_outter {
+    width: 100%;
+    background-color: cornflowerblue;
+}
+
+.main_name_line, .main_text_line {
+    width: 1200px;
+    margin: 0 auto;
+    justify-content: space-between;
+    background-color: blanchedalmond;
+}
+
+.main_text_line {
+    display: flex;
+    height: 400px;
+    align-items: center;
+}
+
+.main_text {
+    margin-left: 150px; 
+    font-size: 65px;
+    font-weight: 700;
+}
+
+.main_name_line {
+    height: 700px;
+    align-items: center;
+}
+
+.main_name_outter {
+    margin-right: 20px;
+    width: 600px;
+
+}
