@@ -1,9 +1,5 @@
 import './App.css';
-<<<<<<< HEAD
 import styled from 'styled-components';
-=======
-// import styled from 'styled-components';
->>>>>>> e3196c5ff039926e169a624f9c5e0a7d5ab706bf
 import About from './path/Main/About';
 import TopHeader from './path/Header/TopHeader';
 
@@ -12,29 +8,23 @@ function App() {
       <>
         <TopHeader></TopHeader>
         <About></About>
-<<<<<<< HEAD
         <Test>sss</Test>
-=======
->>>>>>> e3196c5ff039926e169a624f9c5e0a7d5ab706bf
       </>
    
     );
 }
 // class(x) -> className={}
 
-<<<<<<< HEAD
 const Test = styled.div`
       height: 700px;
       width: 800px;
       background-color: blue;
     `
-=======
 // const Test = styled.div`
 //       height: 700px;
 //       width: 800px;
 //       background-color: blue;
 //     `
->>>>>>> e3196c5ff039926e169a624f9c5e0a7d5ab706bf
 
 
 
