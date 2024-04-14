@@ -1,6 +1,13 @@
 import './About.css'
+<<<<<<< HEAD
 
 export default function About(){
+=======
+// import main_image from './../image/main_page/main_page_image.png'
+
+export default function About(){
+    const mainPageImageFirst = "https://kimtaemin27.github.io/tm_portfolio/src/assets/image/main_page/main_page_image.png"
+>>>>>>> e3196c5ff039926e169a624f9c5e0a7d5ab706bf
     return <>
         <div class="information_outter">
             <div class="main_text_line">
@@ -13,6 +20,10 @@ export default function About(){
                     <a class="main_name">기획자 포트폴리오</a>
                 </div>
             </div>
+<<<<<<< HEAD
+=======
+            <img src={ mainPageImageFirst }/>
+>>>>>>> e3196c5ff039926e169a624f9c5e0a7d5ab706bf
         </div>
     </>
 }
