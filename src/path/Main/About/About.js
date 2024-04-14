@@ -1,9 +1,6 @@
 import './About.css'
 
 export default function About(){
-// import main_image from './../image/main_page/main_page_image.png'
-
-export default function About(){
     const mainPageImageFirst = "https://kimtaemin27.github.io/tm_portfolio/src/assets/image/main_page/main_page_image.png"
     return <>
         <div class="information_outter">
