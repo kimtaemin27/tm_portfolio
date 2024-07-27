@@ -25,7 +25,22 @@
     width: 150px;
 }
 
-.info_outter .Info_right > .info_Text {
+.info_outter .Info_right > .info_text {
     color: black;
     font-weight: 700;
+    line-height: 30px;
+    font-size: 20px;
+}
+
+.info_outter .Info_right > .edu_text {
+    margin-top: 30px;
+    color: black;
+    font-weight: 700;
+    line-height: 30px;
+    font-size: 20px;
+}
+
+.info_outter .Info_right .edu_text ul li > p {
+    color: red;
+    text-indent: 20px;
 }
