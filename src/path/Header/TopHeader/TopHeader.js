@@ -3,16 +3,16 @@ import './TopHeader.css'
 
 export default function TopHeader() {
     return <>
-        <header class="outter">
-            <section class="header_outter">
-                <div class="name_line">
+        <header className="outter">
+            <section className="header_outter">
+                <div className="name_line">
                     <a>TAEMIN PORTFOLIO</a>
                 </div>
-                <div class="menu_line">
-                    <a id="header_about">About me</a>
-                    <a id="header_skill">Skills</a>
-                    <a id="header_project">Projects</a>
-                    <a id="header_career">Career</a>
+                <div className="menu_line">
+                    <a id="header_about">ABOUT ME</a>
+                    <a id="header_skill">SKILLS</a>
+                    <a id="header_project">PROJECTS</a>
+                    <a id="header_career">CAREER</a>
                 </div>
             </section>
         </header>

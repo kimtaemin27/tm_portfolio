@@ -1,24 +1,30 @@
 .outter {
     width: 100%;
-    background-color: cornflowerblue;
+    background-color: black;
     position: fixed;
     top: 0px;
+    z-index: 9999;
+    padding: 0 50px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    min-width: 1180px;
 }
 
 .header_outter {
-    width: 1200px;
     height: 80px;
-    background-color: blanchedalmond;
+    background-color: black;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
 .name_line, .menu_line {
     font-size: 26px;
     font-weight: bold;
-    color: black;
+    color: #F5F5F5;
 }
 
 .name_line {
@@ -33,6 +39,9 @@
 
 .menu_line a {
     margin-right: 20px;
+    font-size: 18px;
+    font-weight: 700;
+
 }
 
 .menu_line a:hover {
