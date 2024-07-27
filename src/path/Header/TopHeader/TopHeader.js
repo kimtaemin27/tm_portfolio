@@ -10,7 +10,6 @@ export default function TopHeader() {
                 </div>
                 <div className="menu_line">
                     <a id="header_about">ABOUT ME</a>
-                    <a id="header_skill">SKILLS</a>
                     <a id="header_project">PROJECTS</a>
                     <a id="header_career">CAREER</a>
                 </div>

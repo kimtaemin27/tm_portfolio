@@ -1,13 +1,15 @@
 import './App.css';
 import styled from 'styled-components';
-import About from './path/Main/About';
 import TopHeader from './path/Header/TopHeader';
+import About from './path/Main/About';
+import Info from './path/Main/Info';
 
 function App() {
     return (
       <>
         <TopHeader></TopHeader>
         <About></About>
+        <Info></Info>
         <Test>sss</Test>
       </>
    

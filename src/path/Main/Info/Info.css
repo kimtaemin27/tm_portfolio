@@ -1,0 +1,31 @@
+.info_outter {
+    background-color: #F5F5F5;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+/* .Info_Outter .Info_left {
+} */
+
+.info_outter .Info_right {
+    margin-left: 30px;
+    height: 500px;
+}
+
+.info_title {
+    padding: 0 50px;
+    padding-top: 50px;
+    font-size: 45px;
+}
+
+.info_outter .Info_left > .profileImg {
+    width: 150px;
+}
+
+.info_outter .Info_right > .info_Text {
+    color: black;
+    font-weight: 700;
+}
