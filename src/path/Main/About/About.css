@@ -30,6 +30,11 @@
     color: white;
 }
 
+.inViewComponents{
+    width: 100%;
+    height: 100vh;
+}
+
 /* .information_outter .right{
     height: 500px;
     margin-top: 100px;
