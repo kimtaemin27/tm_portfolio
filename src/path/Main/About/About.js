@@ -7,15 +7,17 @@ export default function About(){
 
     const { ref, inView } = useInView({
         triggerOnce: false,
-        threshold: 0.5,
+        threshold: 1,
     });
 
     return <>
-        <motion.div 
-            initial={{ opacity: 0, backGround: "red" }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.5, delay: 1 }}
-        >
+        <motion.div
+            ref={ref}
+            initial={{ opacity: 0, backgroundColor: "#000" }}
+            animate={{ opacity: 1, backgroundColor: inView ? "#000000" : "#F5F5F5" }}
+            transition={{ opacity: { duration: 1.5 }, backgroundColor: { duration: 1.5, ease: "easeInOut" } }}
+                style={{ width: "100%", height: "100%", backgroundColor: "#000000" }}
+            >
             <div className="About_outter">
                 {/* left */}
                 <div className="left">

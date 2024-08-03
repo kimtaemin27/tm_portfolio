@@ -1,34 +1,31 @@
-import './App.css';
-import styled from 'styled-components';
-import TopHeader from './path/Header/TopHeader';
-import About from './path/Main/About';
-import Info from './path/Main/Info';
+import "./App.css";
+import styled from "styled-components";
+import TopHeader from "./path/Header/TopHeader";
+import About from "./path/Main/About";
+import Info from "./path/Main/Info";
 
 function App() {
-    return (
-      <>
-        <TopHeader></TopHeader>
-        <About></About>
-        <Info></Info>
-        <Test>sss</Test>
-      </>
-   
-    );
+  return (
+    <>
+      <TopHeader></TopHeader>
+      <About></About>
+      <Info></Info>
+      <Test>sss</Test>
+    </>
+  );
 }
 // class(x) -> className={}
 
 const Test = styled.div`
-      height: 700px;
-      width: 800px;
-      background-color: blue;
-    `
+  height: 700px;
+  width: 800px;
+  background-color: blue;
+`;
 // const Test = styled.div`
 //       height: 700px;
 //       width: 800px;
 //       background-color: blue;
 //     `
-
-
 
 export default App;
 
