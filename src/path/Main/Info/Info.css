@@ -1,46 +1,60 @@
 .info_outter {
-    background-color: #F5F5F5;
-    width: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    padding: 50px;
-    box-sizing: border-box;
+  background-color: #f5f5f5;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 50px;
+  box-sizing: border-box;
 }
 
 /* .Info_Outter .Info_left {
 } */
 
 .info_outter .Info_right {
-    margin-left: 30px;
-    height: 500px;
+  margin-left: 30px;
+  height: 500px;
 }
 
 .info_title {
-    padding: 0 50px;
-    padding-top: 50px;
-    font-size: 45px;
+  padding: 0 50px;
+  padding-top: 50px;
+  font-size: 45px;
 }
 
 .info_outter .Info_left > .profileImg {
-    width: 150px;
+  width: 150px;
 }
 
 .info_outter .Info_right > .info_text {
-    color: black;
-    font-weight: 700;
-    line-height: 30px;
-    font-size: 20px;
+  color: black;
+  font-weight: 700;
+  line-height: 30px;
+  font-size: 20px;
 }
 
-.info_outter .Info_right > .edu_text {
-    margin-top: 30px;
-    color: black;
-    font-weight: 700;
-    line-height: 30px;
-    font-size: 20px;
+.info_outter .Info_right .edu_text {
+  color: black;
+  font-weight: 700;
+  line-height: 30px;
+  font-size: 20px;
 }
 
-.info_outter .Info_right .edu_text ul li > p {
-    color: red;
-    text-indent: 20px;
+.info_outter .Info_right .edu_text h3 {
+  margin-top: 30px;
+}
+
+.info_outter .Info_right .edu_text ul li {
+  text-indent: 20px;
+  border: solid 1px #000;
+  justify-content: space-between;
+}
+
+.stackSkillWrap > li {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+li.twoDepthItem {
+  display: flex;
 }
