@@ -4,10 +4,10 @@ import profileImage from "./profile.jpg";
 export default function Info() {
   return (
     <>
-      <div className="info_title">
+      <div className="info_title" id="info_about">
         <p>ABOUT ME</p>
       </div>
-      <div className="info_outter" id="info_about">
+      <div className="info_outter">
         {/* left */}
         <div className="Info_left">
           <img className="profileImg" alt="proImg" src={profileImage} />
@@ -42,7 +42,7 @@ export default function Info() {
               {/* 2 */}
               <li>
                 <div className="duration">2022.01 ~ 2022.07</div>
-                <ul className="2depthStack">
+                <ul className="twoDepthStack">
                   <li className="twoDepthItem">
                     <p>기관</p>
                     <p>코리아정보보안 IT 아카데미</p>
@@ -50,6 +50,39 @@ export default function Info() {
                   <li className="twoDepthItem">
                     <p>교육과정명</p>
                     <p>임베디드 소프트웨어 융합 풀스텍 개발자 양성과정</p>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </span>
+          <span className="work_text">
+            <h3>경력사항</h3>
+            <ul className="workWrap">
+              {/* 1 */}
+              <li>
+                <div className="duration">2023.04 ~ 2024.09</div>
+                <ul className="twoDepthStack">
+                  <li className="twoDepthItem">
+                    <p>회사명</p>
+                    <p>(주)아이마케팅</p>
+                  </li>
+                  <li className="twoDepthItem">
+                    <p>직책 / 담당</p>
+                    <p>대리 / PHP 개발자</p>
+                  </li>
+                </ul>
+              </li>
+              {/* 2 */}
+              <li>
+                <div className="duration">2022.08 ~ 2023.03</div>
+                <ul className="twoDepthStack">
+                  <li className="twoDepthItem">
+                    <p>회사명</p>
+                    <p>(주)비즈웍스</p>
+                  </li>
+                  <li className="twoDepthItem">
+                    <p>직책 / 담당</p>
+                    <p>사원 / PHP 개발자</p>
                   </li>
                 </ul>
               </li>

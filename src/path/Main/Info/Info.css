@@ -12,7 +12,7 @@
 
 .info_outter .Info_right {
   margin-left: 30px;
-  height: 500px;
+  height: 800px;
 }
 
 .info_title {
@@ -45,14 +45,59 @@
 
 .info_outter .Info_right .edu_text ul li {
   text-indent: 20px;
-  border: solid 1px #000;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 .stackSkillWrap > li {
+  margin-top: 30px;
   display: flex;
-  justify-content: space-between;
-  width: 100%;
+  /* justify-content: space-between; */
+  width: 140%;
+}
+
+.stackSkillWrap > li > .twoDepthStack .twoDepthItem > p:first-child {
+  margin-left: 30px;
+  width: 120px;
+}
+
+.stackSkillWrap > li > .twoDepthStack .twoDepthItem > p:nth-child(2) {
+  margin-left: 50px;
+}
+
+li.twoDepthItem {
+  display: flex;
+}
+
+.info_outter .Info_right .work_text {
+  color: black;
+  font-weight: 700;
+  line-height: 30px;
+  font-size: 20px;
+}
+
+.info_outter .Info_right .work_text h3 {
+  margin-top: 30px;
+}
+
+.info_outter .Info_right .work_text ul li {
+  text-indent: 20px;
+  /* justify-content: space-between; */
+}
+
+.workWrap > li {
+  margin-top: 30px;
+  display: flex;
+  /* justify-content: space-between; */
+  width: 140%;
+}
+
+.workWrap > li > .twoDepthStack .twoDepthItem > p:first-child {
+  margin-left: 30px;
+  width: 120px;
+}
+
+.workWrap > li > .twoDepthStack .twoDepthItem > p:nth-child(2) {
+  margin-left: 50px;
 }
 
 li.twoDepthItem {
