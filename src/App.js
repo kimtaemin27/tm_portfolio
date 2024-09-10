@@ -3,6 +3,7 @@ import styled from "styled-components";
 import TopHeader from "./path/Header/TopHeader";
 import About from "./path/Main/About";
 import Info from "./path/Main/Info";
+import Pm from "./path/Main/self_Projects/Project_Main";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <TopHeader></TopHeader>
       <About></About>
       <Info></Info>
+      <Pm></Pm>
       <Test>sss</Test>
     </>
   );

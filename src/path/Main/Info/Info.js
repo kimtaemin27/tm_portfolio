@@ -1,7 +1,11 @@
 import "./Info.css";
 import profileImage from "./profile.jpg";
+import { useState } from "react";
+import FirstInfoPopup from "../../../components/FirstInfoPopup";
 
 export default function Info() {
+  // const clickInfoDetail = () => {};
+
   return (
     <>
       <div className="info_title" id="info_about">
@@ -65,6 +69,7 @@ export default function Info() {
                   <li className="twoDepthItem">
                     <p>회사명</p>
                     <p>(주)아이마케팅</p>
+                    <FirstInfoPopup />
                   </li>
                   <li className="twoDepthItem">
                     <p>직책 / 담당</p>
