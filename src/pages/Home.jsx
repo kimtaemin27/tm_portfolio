@@ -1,69 +1,209 @@
 import { Link } from 'react-router'
 import { EMAIL } from '../components/Layout.jsx'
+import pcMl from '../assets/images/pc_ml.webp'
+import figAibot from '../assets/images/fig_aibot.webp'
 
-const PROJECTS = [
-  {
-    to: '/stock',
-    tag: '개인 프로젝트',
-    title: '주식 자동매매 시스템',
-    desc: 'AI를 서비스 기능에 접목하면서, 외부 텍스트를 다루는 AI가 주문 환경에 닿지 않도록 실행 위치와 권한을 나눠 설계했습니다.',
-    chips: ['커밋 1,059개', '테스트 1,353건', 'Claude CLI', 'LightGBM'],
-  },
-  {
-    to: '/automation',
-    tag: '회사 업무',
-    title: '업무 자동화 사례',
-    desc: '흩어진 사내 요청을 AI가 정리하는 봇, 배포 내용을 현업 문장으로 바꿔 알리는 안내, 운영 알림, 외부 보험 플랫폼 연동까지 4건을 정리했습니다.',
-    chips: ['Slack 봇', 'Claude CLI', 'Slack 웹훅', '자동 정산'],
-  },
-  {
-    to: '/receipt',
-    tag: '진행 중',
-    ongoing: true,
-    title: '찍고정산',
-    desc: '영수증 사진을 AI가 읽고, 품목마다 나눌 사람을 고르면 각자 낼 금액과 송금 목록을 계산하는 서비스입니다. 기획서부터 프로토타입까지 만들고 있습니다.',
-    chips: ['기획서', '정책서', '화면설계서', 'Claude API'],
-  },
+const CAREER = [
+  { period: '2025.10 ~ 재직 중', company: '(주)준컴퍼니 (카랩)', desc: '알림 발송 기준 수립, 보험 연동·자동 정산, 운영 요청 검토', now: true },
+  { period: '2024.11 ~ 2025.04', company: '에이블', desc: '학회·병원 홈페이지 구축, 결제 연동' },
+  { period: '2023.04 ~ 2024.10', company: '디자인 위브', desc: '쇼핑몰 구축, 쿠폰·할인 정책 정의' },
+  { period: '2022.08 ~ 2023.03', company: '(주)비즈웍스', desc: '급여·연말정산 기준 반영, 업무 자동화' },
 ]
+
+const SKILLS = [
+  ['AI 활용', ['Claude Code', 'Claude CLI']],
+  ['데이터', ['SQL (MySQL, Oracle)', '데이터 추출·분석', 'Firebase']],
+  ['문서', ['Notion', 'Markdown 웹 문서', '설계·배포·운영 절차']],
+  ['개발', ['PHP', 'Laravel', 'Java', 'JavaScript']],
+  ['외부 연동', ['토스페이먼츠', 'NICE 본인인증', '카카오 알림톡', '외부 보험 플랫폼 API']],
+]
+
+function ReceiptArt() {
+  return (
+    <div className="receipt-art" role="img" aria-label="영수증 인식 예시 그림: 품목 합계와 영수증 합계가 맞지 않아 확인 필요로 표시된다">
+      <div className="receipt-paper" aria-hidden="true">
+        <div className="row"><b>예시 식당</b><span>19:42</span></div>
+        <hr />
+        <div className="row"><span>삼겹살 ×3</span><span>45,000</span></div>
+        <div className="row"><span>냉면 ×2</span><span>16,000</span></div>
+        <div className="row"><span>음료 ×4</span><span>8,000</span></div>
+        <hr />
+        <div className="row"><b>합계</b><b className="hl">72,000</b></div>
+      </div>
+      <span className="receipt-tag t1" aria-hidden="true">품목 합 69,000 · 합계 72,000</span>
+      <span className="receipt-tag t2" aria-hidden="true">AI 인식 후 <b>코드 검증</b></span>
+    </div>
+  )
+}
 
 export default function Home() {
   return (
-    <div className="wrap">
+    <>
       <title>김태민 포트폴리오</title>
-      <section className="hero">
-        <h1>개발을 아는 기획자</h1>
-        <p className="lead">
-          4년 차 웹 백엔드 개발자로 일하며 현장의 불편을 찾아 시스템으로 바꿔 왔고,
-          이제 무엇을 왜 만들지 정하는 일을 본업으로 하려 합니다.
-        </p>
-        <p className="meta">
-          총 경력 3년 10개월 (2022.08 ~ 현재) · <Link to="/career">경력 보기</Link>
-        </p>
-      </section>
 
-      <section className="section" aria-labelledby="projects-title">
-        <h2 id="projects-title">프로젝트</h2>
-        <div className="cards">
-          {PROJECTS.map((p) => (
-            <Link key={p.to} to={p.to} className="card">
-              <span className={p.ongoing ? 'tag ongoing' : 'tag'}>{p.tag}</span>
-              <h3>{p.title}</h3>
-              <p>{p.desc}</p>
-              <ul className="chips">
-                {p.chips.map((c) => <li key={c}>{c}</li>)}
-              </ul>
-              <div className="card-foot">자세히 보기</div>
-            </Link>
-          ))}
+      <section className="dark">
+        <div className="container hero">
+          <p className="hero-eyebrow"><span className="dot" />PM · 서비스 기획 · AX 직무 지원</p>
+          <h1>
+            개발을 아는<br />
+            <span className="grad-text">기획자</span>, 김태민입니다
+          </h1>
+          <p className="hero-lead">
+            4년 차 웹 백엔드 개발자로 일하며 현장의 불편을 찾아 시스템으로 바꿔 왔고,
+            이제 무엇을 왜 만들지 정하는 일을 본업으로 하려 합니다.
+          </p>
+          <div className="hero-actions">
+            <a className="btn btn-primary" href="#projects">프로젝트 보기</a>
+            <a className="btn btn-ghost" href={`mailto:${EMAIL}`}>{EMAIL}</a>
+          </div>
+          <dl className="hero-stats">
+            <div><dd>3년 10개월</dd><dt>총 경력</dt></div>
+            <div><dd>4곳</dd><dt>회사 경험</dt></div>
+            <div><dd>1,059개</dd><dt>개인 프로젝트 커밋</dt></div>
+            <div><dd>4건</dd><dt>회사 업무 자동화 사례</dt></div>
+          </dl>
         </div>
       </section>
 
-      <section className="section" aria-labelledby="contact-title">
-        <h2 id="contact-title">연락처</h2>
-        <p>
-          이메일 <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
-        </p>
+      <section className="block" id="projects">
+        <div className="container">
+          <div className="block-head reveal">
+            <div>
+              <p className="eyebrow">Projects</p>
+              <h2>문제를 정의하고, 끝까지 만들었습니다</h2>
+              <p>프로젝트마다 해결하려던 문제, 내린 판단과 이유, 실패와 수정 과정을 정리했습니다.</p>
+            </div>
+          </div>
+
+          <div className="showcase">
+            <Link to="/stock" className="case-card reveal">
+              <div className="case-media"><img src={pcMl} alt="" /></div>
+              <div className="case-body">
+                <span className="pill pill-light">개인 프로젝트</span>
+                <h3>주식 자동매매 시스템</h3>
+                <p>
+                  공시·뉴스 판정과 보유 종목 리포트에 AI를 접목하면서, 외부 텍스트를 다루는 AI가
+                  주문 환경에 닿지 않도록 실행 위치와 권한을 나눠 설계했습니다.
+                </p>
+                <dl className="case-nums">
+                  <div><dd>1,059</dd><dt>커밋</dt></div>
+                  <div><dd>1,353</dd><dt>테스트</dt></div>
+                  <div><dd>7.7만</dd><dt>코드 줄 수</dt></div>
+                </dl>
+                <span className="case-more">자세히 보기</span>
+              </div>
+            </Link>
+
+            <Link to="/automation" className="case-card reveal">
+              <div className="case-media"><img src={figAibot} alt="" /></div>
+              <div className="case-body">
+                <span className="pill pill-light">회사 업무</span>
+                <h3>업무 자동화 사례</h3>
+                <p>
+                  흩어진 사내 요청을 AI가 정리하는 봇, 배포 내용을 현업 문장으로 바꿔 알리는 안내,
+                  운영 알림, 외부 보험 플랫폼 연동까지 4건을 정리했습니다.
+                </p>
+                <dl className="case-nums">
+                  <div><dd>17건</dd><dt>흩어진 요청을 한 목록으로</dt></div>
+                  <div><dd>0건</dd><dt>보험 동기화 오류</dt></div>
+                </dl>
+                <span className="case-more">자세히 보기</span>
+              </div>
+            </Link>
+
+            <Link to="/receipt" className="case-card reveal">
+              <div className="case-media"><ReceiptArt /></div>
+              <div className="case-body">
+                <span className="pill pill-light pill-warn">진행 중</span>
+                <h3>찍고정산</h3>
+                <p>
+                  영수증 사진을 AI가 읽고, 품목마다 나눌 사람을 고르면 각자 낼 금액과 송금 목록을 계산하는 서비스입니다.
+                  기획서부터 프로토타입과 성능 평가까지 만들고 있습니다.
+                </p>
+                <ul className="chips">
+                  <li>기획서</li><li>정책서</li><li>화면설계서</li><li>Claude API</li>
+                </ul>
+                <span className="case-more" style={{ marginTop: 24 }}>자세히 보기</span>
+              </div>
+            </Link>
+          </div>
+        </div>
       </section>
-    </div>
+
+      <section className="block block-soft">
+        <div className="container">
+          <div className="block-head reveal">
+            <div>
+              <p className="eyebrow">How I work</p>
+              <h2>이렇게 일합니다</h2>
+            </div>
+          </div>
+          <div className="principles">
+            <article className="principle reveal">
+              <div className="principle-icon">01</div>
+              <h3>현장의 불편에서 시작합니다</h3>
+              <p>요청이 채널에 흩어지고, 오류가 CS를 거쳐 늦게 전달되던 상황처럼 현업이 실제로 겪는 불편을 먼저 찾고 시스템으로 바꿨습니다.</p>
+            </article>
+            <article className="principle reveal">
+              <div className="principle-icon">02</div>
+              <h3>AI는 판단, 코드는 검증</h3>
+              <p>AI에는 분류와 서술을 맡기고, 수집·검증·발송·주문은 코드가 맡게 나눴습니다. AI가 틀릴 수 있다는 것을 전제로 설계합니다.</p>
+            </article>
+            <article className="principle reveal">
+              <div className="principle-icon">03</div>
+              <h3>직접 시험해 보고 정합니다</h3>
+              <p>차단된다고 설명된 설정도 직접 시험해 실제로 막히지 않는 것을 확인하고 바꿨습니다. 문서보다 측정한 결과를 기준으로 삼습니다.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="block">
+        <div className="container home-career">
+          <div className="reveal">
+            <p className="eyebrow">Career</p>
+            <div className="block-head" style={{ marginBottom: 36 }}>
+              <div>
+                <h2>경력 3년 10개월</h2>
+                <p>웹 에이전시, 솔루션 회사, 플랫폼 회사에서 개발과 함께 정책과 기준을 정하는 일을 맡아 왔습니다.</p>
+              </div>
+            </div>
+            <ol className="timeline">
+              {CAREER.map((c) => (
+                <li key={c.company} className={c.now ? 'now' : undefined}>
+                  <div className="tl-period">{c.period}</div>
+                  <div className="tl-company">{c.company}</div>
+                  <p className="tl-desc">{c.desc}</p>
+                </li>
+              ))}
+            </ol>
+            <p style={{ marginTop: 32 }}><Link to="/career" className="case-more" style={{ textDecoration: 'none' }}>회사별 업무 자세히 보기</Link></p>
+          </div>
+          <div className="reveal">
+            <p className="eyebrow">Skills</p>
+            <div className="block-head" style={{ marginBottom: 36 }}>
+              <div><h2>보유 기술</h2></div>
+            </div>
+            <div className="skill-groups">
+              {SKILLS.map(([group, items]) => (
+                <div key={group} className="skill-group">
+                  <h3>{group}</h3>
+                  <ul className="chips">{items.map((s) => <li key={s}>{s}</li>)}</ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="dark contact">
+        <div className="container reveal">
+          <p className="eyebrow" style={{ color: '#9fb6ff' }}>Contact</p>
+          <h2>함께 일할 기회를 찾고 있습니다</h2>
+          <p>PM · 서비스 기획 · AX 직무에 지원하고 있습니다. 편하게 연락 주세요.</p>
+          <a className="btn btn-primary" href={`mailto:${EMAIL}`}>{EMAIL}</a>
+        </div>
+      </section>
+    </>
   )
 }
