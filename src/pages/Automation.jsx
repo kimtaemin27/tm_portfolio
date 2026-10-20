@@ -1,10 +1,10 @@
 import { Link } from 'react-router'
-import { Figure, Flow, NextLink, PageHead, Section, Table } from '../components/ui.jsx'
-import figBotlist from '../assets/images/fig_botlist2.png'
-import figAibot from '../assets/images/fig_aibot.png'
-import figDeploy1 from '../assets/images/fig_deploy1.png'
-import figDeploy2 from '../assets/images/fig_deploy2.png'
-import figSlack from '../assets/images/fig_slack.png'
+import { Figure, Flow, NextLink, PageHead, Section, Table, Toc } from '../components/ui.jsx'
+import figBotlist from '../assets/images/fig_botlist2.webp'
+import figAibot from '../assets/images/fig_aibot.webp'
+import figDeploy1 from '../assets/images/fig_deploy1.webp'
+import figDeploy2 from '../assets/images/fig_deploy2.webp'
+import figSlack from '../assets/images/fig_slack.webp'
 
 export default function Automation() {
   return (
@@ -27,6 +27,7 @@ export default function Automation() {
         />
         <p className="note-inline">개인 프로젝트는 <Link to="/stock">주식 자동매매 시스템</Link>에 따로 정리했습니다.</p>
       </PageHead>
+      <Toc />
 
       <Section no="01" title="사내 요청 AI 정리·분배 봇 (Slack)" id="request-bot">
         <h3>해결하려던 문제</h3>
@@ -170,7 +171,7 @@ export default function Automation() {
         </ul>
       </Section>
 
-      <Section title="그 외 외부 서비스 연동 경험">
+      <Section title="그 외 외부 서비스 연동 경험" id="others">
         <Table
           caption="그 외 외부 서비스 연동 경험"
           head={['연동 대상', '내용']}

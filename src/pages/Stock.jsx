@@ -1,12 +1,12 @@
 import { Link } from 'react-router'
-import { Figure, Flow, More, NextLink, PageHead, Section, Table } from '../components/ui.jsx'
+import { Figure, Flow, More, NextLink, PageHead, Section, Table, Toc } from '../components/ui.jsx'
 import arch from '../assets/images/arch.svg'
-import pcMl from '../assets/images/pc_ml.png'
-import pcIntel from '../assets/images/pc_intel.png'
-import figJudge from '../assets/images/fig_judge.png'
-import figReportTg from '../assets/images/fig_report_tg.png'
-import figReportHtml from '../assets/images/fig_report_html.png'
-import figOps from '../assets/images/fig_ops.png'
+import pcMl from '../assets/images/pc_ml.webp'
+import pcIntel from '../assets/images/pc_intel.webp'
+import figJudge from '../assets/images/fig_judge.webp'
+import figReportTg from '../assets/images/fig_report_tg.webp'
+import figReportHtml from '../assets/images/fig_report_html.webp'
+import figOps from '../assets/images/fig_ops.webp'
 
 export default function Stock() {
   return (
@@ -33,6 +33,7 @@ export default function Stock() {
           ]}
         />
       </PageHead>
+      <Toc />
 
       <Section no="01" title="해결하려던 문제">
         <p>

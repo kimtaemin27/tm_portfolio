@@ -1,5 +1,5 @@
 import { Link } from 'react-router'
-import { Flow, More, NextLink, PageHead, Section, Table } from '../components/ui.jsx'
+import { Flow, More, NextLink, PageHead, Section, Table, Toc } from '../components/ui.jsx'
 
 export default function Receipt() {
   return (
@@ -17,6 +17,7 @@ export default function Receipt() {
           </p>
         </div>
       </PageHead>
+      <Toc />
 
       <Section no="01" title="해결하려는 문제">
         <p>주 사용자는 모임이나 여행에서 총무를 맡은 사람입니다.</p>

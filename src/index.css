@@ -254,3 +254,23 @@ td:first-child { white-space: nowrap; font-weight: 500; }
 
 /* 고정 헤더에 가려지지 않게 */
 .section { scroll-margin-top: 72px; }
+
+/* 목차: 좁은 화면에서는 머리말 아래 목록, 넓은 화면에서는 오른쪽에 고정 */
+.toc { margin: 8px 0 0; padding: 14px 18px; background: var(--bg-soft); border-radius: var(--radius); }
+.toc-title { font-size: 0.85rem; font-weight: 600; color: var(--text-sub); margin: 0 0 6px; }
+.toc ol { list-style: none; margin: 0; padding: 0; counter-reset: toc; }
+.toc li { margin: 0; font-size: 0.92rem; line-height: 1.5; counter-increment: toc; }
+.toc li + li { margin-top: 4px; }
+.toc a { color: var(--text-sub); text-decoration: none; display: block; padding: 2px 0; }
+.toc a::before { content: counter(toc, decimal-leading-zero) '  '; color: var(--accent); font-weight: 600; font-size: 0.85em; white-space: pre; }
+.toc a:hover { color: var(--text); }
+.toc a[aria-current] { color: var(--accent); font-weight: 600; }
+
+@media (min-width: 1280px) {
+  .toc {
+    position: fixed; top: 100px; left: calc(50% + var(--wrap) / 2 + 24px);
+    width: 210px; margin: 0; padding: 0 0 0 16px; background: none; border-radius: 0;
+    border-left: 1px solid var(--line);
+  }
+  .toc li { font-size: 0.86rem; }
+}

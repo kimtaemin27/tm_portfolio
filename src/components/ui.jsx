@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router'
 
 /** 프로젝트 페이지 상단: 구분 태그, 제목, 한 줄 요약, 핵심 수치, 개요 */
@@ -26,13 +26,52 @@ export function PageHead({ tag, title, lead, stats, children }) {
 /** 번호가 붙은 본문 섹션 */
 export function Section({ no, title, id, children }) {
   return (
-    <section className="section" id={id}>
+    <section className="section" id={id ?? (no ? `s${no}` : undefined)}>
       <h2>
         {no && <span className="no">{no}</span>}
         {title}
       </h2>
       {children}
     </section>
+  )
+}
+
+/** 페이지 목차. 본문의 번호 섹션 제목을 읽어 만들고, 읽고 있는 위치를 표시한다 */
+export function Toc() {
+  const [items, setItems] = useState([])
+  const [current, setCurrent] = useState(null)
+
+  useEffect(() => {
+    const sections = [...document.querySelectorAll('main .section[id]')]
+    // 본문 DOM이 그려진 뒤에야 제목을 읽을 수 있어 effect 안에서 한 번 채운다
+    // oxlint-disable-next-line react/set-state-in-effect
+    setItems(sections.map((el) => ({
+      id: el.id,
+      label: el.querySelector('h2')?.textContent.replace(/^\d+/, '').trim(),
+    })))
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.filter((e) => e.isIntersecting)
+        if (visible.length) setCurrent(visible[0].target.id)
+      },
+      { rootMargin: '-80px 0px -70% 0px' },
+    )
+    sections.forEach((el) => observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
+
+  if (!items.length) return null
+  return (
+    <nav className="toc" aria-label="목차">
+      <p className="toc-title">목차</p>
+      <ol>
+        {items.map((it) => (
+          <li key={it.id}>
+            <a href={`#${it.id}`} aria-current={current === it.id ? 'location' : undefined}>{it.label}</a>
+          </li>
+        ))}
+      </ol>
+    </nav>
   )
 }
 
