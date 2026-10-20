@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link, NavLink, Outlet, ScrollRestoration, useLocation } from 'react-router'
+import { NavLink, Outlet, ScrollRestoration, useLocation } from 'react-router'
 
 export const EMAIL = 'ktm3628@naver.com'
 
@@ -50,10 +50,7 @@ export default function Layout() {
       <a className="skip" href="#main">본문 바로가기</a>
       <header className="site-header">
         <div className="container header-inner">
-          <Link to="/" className="brand">
-            <span className="brand-mark" aria-hidden="true">TM</span>
-            김태민
-          </Link>
+          <NavLink to="/" end className="home-btn">홈</NavLink>
           <button
             className="nav-toggle"
             aria-expanded={open}
@@ -81,7 +78,7 @@ export default function Layout() {
             <p className="footer-title">함께 일할 기회를 찾고 있습니다</p>
             <p className="footer-sub">PM · 서비스 기획 · AX 직무</p>
           </div>
-          <a className="btn btn-light" href={`mailto:${EMAIL}`}>{EMAIL}</a>
+          <a className="btn btn-primary" href={`mailto:${EMAIL}`}>{EMAIL}</a>
         </div>
         <div className="container footer-bottom">© 김태민</div>
       </footer>

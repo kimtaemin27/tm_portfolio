@@ -13,7 +13,6 @@ export function ProjectHero({ tag, ongoing, title, lead, stats, meta, chips, cov
     <header className="p-hero">
       <div className={cover || visual ? 'container p-hero-grid' : 'container p-hero-grid solo'}>
         <div className="p-hero-text">
-          <Link to="/" className="back">← 홈</Link>
           <span className={ongoing ? 'pill pill-warn' : 'pill'}>{tag}</span>
           <h1>{title}</h1>
           <p className="p-hero-lead">{lead}</p>

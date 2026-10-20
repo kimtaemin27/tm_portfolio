@@ -198,7 +198,7 @@ export default function Home() {
 
       <section className="dark contact">
         <div className="container reveal">
-          <p className="eyebrow" style={{ color: '#9fb6ff' }}>Contact</p>
+          <p className="eyebrow">Contact</p>
           <h2>함께 일할 기회를 찾고 있습니다</h2>
           <p>PM · 서비스 기획 · AX 직무에 지원하고 있습니다. 편하게 연락 주세요.</p>
           <a className="btn btn-primary" href={`mailto:${EMAIL}`}>{EMAIL}</a>
