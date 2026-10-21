@@ -43,10 +43,10 @@ export default function Home() {
 
       <section className="dark">
         <div className="container hero">
-          <p className="hero-eyebrow"><span className="dot" />PM · 서비스 기획 · AX 직무 지원</p>
+          <p className="hero-eyebrow"><span className="dot" />안녕하세요, 김태민입니다</p>
           <h1>
-            개발을 아는<br />
-            <span className="grad-text">기획자</span>, 김태민입니다
+            <span className="grad-text">AI</span>에게 일을 맡기는<br />
+            방법을 설계합니다
           </h1>
           <p className="hero-lead">
             4년 차 웹 백엔드 개발자로 일하며 현장의 불편을 찾아 시스템으로 바꿔 왔고,
@@ -200,7 +200,7 @@ export default function Home() {
         <div className="container reveal">
           <p className="eyebrow">Contact</p>
           <h2>함께 일할 기회를 찾고 있습니다</h2>
-          <p>PM · 서비스 기획 · AX 직무에 지원하고 있습니다. 편하게 연락 주세요.</p>
+          <p>프로젝트나 경력에 대해 궁금한 점이 있으면 편하게 연락 주세요.</p>
           <a className="btn btn-primary" href={`mailto:${EMAIL}`}>{EMAIL}</a>
         </div>
       </section>
