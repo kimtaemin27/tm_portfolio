@@ -2,6 +2,7 @@ import { Link } from 'react-router'
 import { EMAIL } from '../components/Layout.jsx'
 import pcMl from '../assets/images/pc_ml.webp'
 import figAibot from '../assets/images/fig_aibot.webp'
+import excelRules from '../assets/images/excel/rules.webp'
 
 const CAREER = [
   { period: '2025.10 ~ 재직 중', company: '(주)준컴퍼니 (카랩)', desc: '알림 발송 기준 수립, 보험 연동·자동 정산, 운영 요청 검토', now: true },
@@ -18,23 +19,6 @@ const SKILLS = [
   ['외부 연동', ['토스페이먼츠', 'NICE 본인인증', '카카오 알림톡', '외부 보험 플랫폼 API']],
 ]
 
-function ReceiptArt() {
-  return (
-    <div className="receipt-art" role="img" aria-label="영수증 인식 예시 그림: 품목 합계와 영수증 합계가 맞지 않아 확인 필요로 표시된다">
-      <div className="receipt-paper" aria-hidden="true">
-        <div className="row"><b>예시 식당</b><span>19:42</span></div>
-        <hr />
-        <div className="row"><span>삼겹살 ×3</span><span>45,000</span></div>
-        <div className="row"><span>냉면 ×2</span><span>16,000</span></div>
-        <div className="row"><span>음료 ×4</span><span>8,000</span></div>
-        <hr />
-        <div className="row"><b>합계</b><b className="hl">72,000</b></div>
-      </div>
-      <span className="receipt-tag t1" aria-hidden="true">품목 합 69,000 · 합계 72,000</span>
-      <span className="receipt-tag t2" aria-hidden="true">AI 인식 후 <b>코드 검증</b></span>
-    </div>
-  )
-}
 
 export default function Home() {
   return (
@@ -79,6 +63,23 @@ export default function Home() {
           </div>
 
           <div className="showcase">
+            <Link to="/excel" className="case-card reveal">
+              <div className="case-media"><img src={excelRules} alt="" /></div>
+              <div className="case-body">
+                <span className="pill pill-light">개인 프로젝트 · 서비스 기획</span>
+                <h3>ExcelReader</h3>
+                <p>
+                  AI가 엑셀 정리 규칙을 제안하고, 사람이 승인하고, 코드가 적용하는 서비스입니다.
+                  기획 문서 8종과 동작하는 프로토타입, 정답 데이터로 만든 평가까지 직접 설계했습니다.
+                </p>
+                <dl className="case-nums">
+                  <div><dd>24개</dd><dt>정책</dt></div>
+                  <div><dd>100%</dd><dt>셀 정확도 (가상 데이터)</dt></div>
+                  <div><dd>0회</dd><dt>다음 날 AI 호출</dt></div>
+                </dl>
+                <span className="case-more">자세히 보기</span>
+              </div>
+            </Link>
             <Link to="/stock" className="case-card reveal">
               <div className="case-media"><img src={pcMl} alt="" /></div>
               <div className="case-body">
@@ -114,21 +115,6 @@ export default function Home() {
               </div>
             </Link>
 
-            <Link to="/receipt" className="case-card reveal">
-              <div className="case-media"><ReceiptArt /></div>
-              <div className="case-body">
-                <span className="pill pill-light pill-warn">진행 중</span>
-                <h3>찍고정산</h3>
-                <p>
-                  영수증 사진을 AI가 읽고, 품목마다 나눌 사람을 고르면 각자 낼 금액과 송금 목록을 계산하는 서비스입니다.
-                  기획서부터 프로토타입과 성능 평가까지 만들고 있습니다.
-                </p>
-                <ul className="chips">
-                  <li>기획서</li><li>정책서</li><li>화면설계서</li><li>Claude API</li>
-                </ul>
-                <span className="case-more" style={{ marginTop: 24 }}>자세히 보기</span>
-              </div>
-            </Link>
           </div>
         </div>
       </section>

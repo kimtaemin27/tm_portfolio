@@ -122,7 +122,7 @@ export default function Career() {
         </Section>
       </Article>
 
-      <NextProject to="/stock" label="프로젝트 보기" title="주식 자동매매 시스템" desc="개인 프로젝트 · AI를 서비스 기능에 안전하게 접목한 사례" />
+      <NextProject to="/excel" label="프로젝트 보기" title="ExcelReader" desc="개인 프로젝트 · AI가 제안하고 사람이 승인하는 엑셀 정리 자동화" />
     </>
   )
 }

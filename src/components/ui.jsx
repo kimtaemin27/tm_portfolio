@@ -293,3 +293,46 @@ export function NextProject({ to, label, title, desc }) {
     </div>
   )
 }
+
+/** 셋 이상의 주체가 나눠 맡는 역할. items: [{ who, does, doesNot }] */
+export function RoleCards({ items }) {
+  return (
+    <div className="role-cards">
+      {items.map((r) => (
+        <article key={r.who} className="role-card">
+          <h3>{r.who}</h3>
+          <p className="role-card-label">맡는 일</p>
+          <p>{r.does}</p>
+          <p className="role-card-label not">맡기지 않는 일</p>
+          <p className="muted">{r.doesNot}</p>
+        </article>
+      ))}
+    </div>
+  )
+}
+
+/** 내려받을 수 있는 문서 목록. items: [{ id, title, desc, href, type }] */
+export function DocList({ items }) {
+  return (
+    <ul className="doc-list">
+      {items.map((d) => (
+        <li key={d.id}>
+          {d.href ? (
+            <a href={d.href} download={`${d.id}_${d.title}.${d.type}`}>
+              <span className="doc-id">{d.id}</span>
+              <b>{d.title}</b>
+              <span className="doc-desc">{d.desc}</span>
+              <span className="doc-type">{d.type.toUpperCase()} 받기</span>
+            </a>
+          ) : (
+            <div>
+              <span className="doc-id">{d.id}</span>
+              <b>{d.title}</b>
+              <span className="doc-desc">{d.desc}</span>
+            </div>
+          )}
+        </li>
+      ))}
+    </ul>
+  )
+}

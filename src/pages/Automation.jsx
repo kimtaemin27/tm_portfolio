@@ -221,7 +221,7 @@ export default function Automation() {
         </Section>
       </Article>
 
-      <NextProject to="/receipt" label="다음 프로젝트" title="찍고정산" desc="진행 중 · 영수증 인식 정산 서비스" />
+      <NextProject to="/career" label="다음" title="경력" desc="회사별 업무와 보유 기술" />
     </>
   )
 }

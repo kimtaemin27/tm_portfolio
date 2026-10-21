@@ -193,7 +193,7 @@ export default function Stock() {
           <Callout>
             <p>
               보안 옵션을 직접 시험해 본 뒤로, 차단이나 격리를 한다고 설명된 설정은 문서를 그대로 믿지 않고 직접 시험한 다음에 채택한다는 원칙을 세웠습니다.
-              AI는 판단과 서술만 맡기고 수집·검증·발송·주문은 코드가 맡는 역할 분리는, 진행 중인 <Link to="/receipt">찍고정산</Link>에도 같은 원칙으로 가져갑니다.
+              AI는 판단과 서술만 맡기고 수집·검증·발송·주문은 코드가 맡는 역할 분리는 <Link to="/excel">ExcelReader</Link>에서도 같은 원칙으로 썼습니다.
             </p>
           </Callout>
         </Section>

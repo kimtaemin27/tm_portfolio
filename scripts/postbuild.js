@@ -4,7 +4,7 @@ import { copyFileSync, mkdirSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 const dist = 'dist'
-const routes = ['stock', 'automation', 'receipt', 'career']
+const routes = ['excel', 'stock', 'automation', 'career']
 
 for (const route of routes) {
   mkdirSync(join(dist, route), { recursive: true })

@@ -4,9 +4,9 @@ import { NavLink, Outlet, ScrollRestoration, useLocation } from 'react-router'
 export const EMAIL = 'ktm3628@naver.com'
 
 const NAV = [
+  { to: '/excel', label: 'ExcelReader' },
   { to: '/stock', label: '주식 자동매매' },
   { to: '/automation', label: '업무 자동화' },
-  { to: '/receipt', label: '찍고정산' },
   { to: '/career', label: '경력' },
 ]
 
