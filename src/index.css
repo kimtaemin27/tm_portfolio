@@ -145,7 +145,9 @@ code {
 .hero-eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px rgba(255, 106, 43, 0.2); }
 .hero h1 { font-size: clamp(2.6rem, 6.4vw, 5rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.035em; color: var(--text); }
 .grad-text { color: var(--accent); }
-.hero-lead { margin: 28px 0 40px; max-width: 640px; font-size: clamp(1.05rem, 1.6vw, 1.22rem); color: var(--text-sub); line-height: 1.8; }
+.hero-lead { margin: 28px 0 40px; max-width: 700px; font-size: clamp(1.05rem, 1.6vw, 1.22rem); color: var(--text-sub); line-height: 1.8; }
+.hero-lead span { display: block; }
+.hero-lead span + span { margin-top: 6px; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
 
 .hero-stats {

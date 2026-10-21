@@ -49,8 +49,11 @@ export default function Home() {
             방법을 설계합니다
           </h1>
           <p className="hero-lead">
-            4년 차 웹 백엔드 개발자로 일하며 현장의 불편을 찾아 시스템으로 바꿔 왔고,
-            이제 무엇을 왜 만들지 정하는 일을 본업으로 하려 합니다.
+            <span>4년 차 웹 백엔드 개발자로 일하며 현장의 불편을 시스템으로 바꿔 왔습니다.</span>
+            <span>
+              사내 요청 정리와 배포 안내에 AI를 도입했고, 개인 프로젝트에서는 AI를 서비스 기능에
+              안전하게 붙이는 구조를 설계했습니다.
+            </span>
           </p>
           <div className="hero-actions">
             <a className="btn btn-primary" href="#projects">프로젝트 보기</a>
