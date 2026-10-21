@@ -13,6 +13,10 @@ npm run dev      # http://localhost:5173/tm_portfolio/
 
 ## 배포
 
+master에 push하면 GitHub Actions(`.github/workflows/deploy.yml`)가 서버에서 빌드해 gh-pages 브랜치에 올리고, GitHub Pages가 그 브랜치를 보여 줍니다. 진행 상황은 저장소의 Actions 탭에서 확인합니다.
+
+로컬에서 직접 올려야 할 때만 아래 명령을 씁니다.
+
 ```bash
 npm run deploy   # 빌드 후 dist를 gh-pages 브랜치에 올림
 ```
