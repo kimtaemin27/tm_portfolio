@@ -1,7 +1,6 @@
 import { Link } from 'react-router'
 import { EMAIL } from '../components/Layout.jsx'
-import pcMl from '../assets/images/pc_ml.webp'
-import figSlack from '../assets/images/fig_slack.webp'
+import { DashML, SlackOpsAlert } from '../components/mocks.jsx'
 import excelRules from '../assets/images/excel/rules.webp'
 import convoyBoard from '../assets/images/convoy/board.webp'
 import chartT1 from '../assets/images/model/chart_t1.webp'
@@ -66,7 +65,7 @@ export default function Home() {
 
           <div className="showcase">
             <Link to="/automation" className="case-card reveal">
-              <div className="case-media case-media-fit"><img src={figSlack} alt="" /></div>
+              <div className="case-media case-media-mock"><SlackOpsAlert /></div>
               <div className="case-body">
                 <span className="pill pill-light">회사 업무 · 카랩</span>
                 <h3>업무 자동화 사례 4건</h3>
@@ -133,7 +132,7 @@ export default function Home() {
             </Link>
 
             <Link to="/stock" className="case-card reveal">
-              <div className="case-media"><img src={pcMl} alt="" /></div>
+              <div className="case-media case-media-mock"><DashML /></div>
               <div className="case-body">
                 <span className="pill pill-light">개인 프로젝트 · 토스증권 Open API · Claude CLI</span>
                 <h3>금융 API 연동 자동화 시스템</h3>

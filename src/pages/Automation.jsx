@@ -1,11 +1,9 @@
 import { Link } from 'react-router'
 import {
-  Article, Callout, Figure, Fixes, Flow, Metrics, NextProject, Problems,
+  Article, Callout, Fixes, Flow, Metrics, NextProject, Problems,
   ProjectHero, RoleSplit, Section, Table,
 } from '../components/ui.jsx'
-import figDeploy1 from '../assets/images/fig_deploy1.webp'
-import figDeploy2 from '../assets/images/fig_deploy2.webp'
-import figSlack from '../assets/images/fig_slack.webp'
+import { MockFigure, SlackDeployNotice, SlackOpsAlert } from '../components/mocks.jsx'
 
 const CASES = [
   { id: 'request-bot', title: '사내 요청 AI 정리·분배 봇', status: '운영 중' },
@@ -168,13 +166,10 @@ export default function Automation() {
             ['1건', '화면 변화가 없는 내부 작업은 건수만 표시'],
           ]} />
           <p>배포할 때마다 따로 공유하지 않아도 변경 사항이 Slack에 남습니다.</p>
-          <Figure
-            images={[
-              { src: figDeploy1, alt: '자동 발송된 배포 안내: 개선 4건과 오류 수정 1건' },
-              { src: figDeploy2, alt: '자동 발송된 배포 안내: 기능 추가 2건과 오류 수정 1건' },
-            ]}
-            caption="배포 브랜치에 push한 뒤 자동으로 발송된 배포 안내 예시 (저장소 이름은 가림)"
-          />
+          <MockFigure pair caption="배포 브랜치에 push한 뒤 자동으로 발송되는 배포 안내. 실제 화면 형식을 바탕으로 다시 그린 예시이며, 내용은 일반화한 가상 값입니다.">
+            <SlackDeployNotice variant="first" />
+            <SlackDeployNotice variant="second" />
+          </MockFigure>
         </Section>
 
         <Section no="04" title="Slack 웹훅 운영 알림" id="ops-alert" kicker="CASE 03 · 오류·주요 이벤트·잔액">
@@ -199,11 +194,9 @@ export default function Automation() {
             <article className="decision"><h3>고객 문의 없이 바로 수정</h3><p>오류 발생 시각, 위치, 원인을 CS를 거치지 않고 바로 확인해 수정합니다.</p></article>
             <article className="decision"><h3>휴일에도 발송 중단 없음</h3><p>잔액이 바닥나기 전에 결제 담당자가 충전할 수 있어 휴일에도 발송이 멈추지 않습니다.</p></article>
           </div>
-          <Figure
-            narrow
-            images={[{ src: figSlack, alt: 'Slack 운영 알림 예시: 신차패키지 할인권 사용 이벤트, 레벨 INFO (매니저 정보와 번호는 가림)' }]}
-            caption="Slack 운영 알림 예시: 신차패키지 할인권 사용 이벤트 (매니저 정보와 번호는 가림)"
-          />
+          <MockFigure narrow caption="Slack 운영 알림. 오류는 ERROR, 주요 이벤트는 INFO 레벨로 보냅니다. 실제 화면 형식을 바탕으로 다시 그린 예시이며, 내용은 일반화한 가상 값입니다.">
+            <SlackOpsAlert />
+          </MockFigure>
         </Section>
 
         <Section no="05" title="외부 보험 플랫폼 연동·자동 정산" id="insurance" kicker="CASE 04 · API 연동">

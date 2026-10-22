@@ -186,9 +186,6 @@ code {
   transition: transform 0.4s ease;
 }
 .case-card:hover .case-media img { transform: translate(-6px, -6px); }
-/* 작은 캡처는 늘리지 않고 가운데에 둔다 */
-.case-media-fit { display: grid; place-items: center; padding: 32px; }
-.case-media-fit img { position: static; width: auto; max-width: 100%; }
 .case-body { padding: 44px 44px 40px; display: flex; flex-direction: column; }
 .case-body .pill { align-self: flex-start; }
 .case-body h3 { font-size: 1.7rem; font-weight: 800; margin: 16px 0 12px; }
@@ -550,3 +547,79 @@ main:has(.contact) + .site-footer .footer-inner { display: none; }
 .two-col > div { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 24px 8px; box-shadow: var(--shadow); }
 .two-col h3 { margin: 0 0 10px !important; font-size: 1.05rem; }
 @media (max-width: 760px) { .two-col { grid-template-columns: 1fr; } }
+
+/* ───────── 코드로 다시 그린 예시 화면 ───────── */
+.mk { font-size: 14px; line-height: 1.55; border-radius: 12px; overflow: hidden; text-align: left; }
+.mk-muted { color: #9a9ca3; }
+.mk-dark { background: #1a1d21; color: #d1d2d3; padding: 18px 20px; }
+.mock-figure .figure-images { align-items: stretch; }
+.mock-figure .mk { box-shadow: var(--shadow); width: 100%; }
+.mock-figure .mk-tg { width: auto; }
+
+/* Slack */
+.mk-slack { display: flex; gap: 12px; }
+.mk-slack-avatar { flex: none; width: 36px; height: 36px; border-radius: 8px; background: linear-gradient(135deg, #ff8a4c, #ff6a2b); }
+.mk-slack-main { flex: 1; min-width: 0; }
+.mk-slack-head { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
+.mk-slack-head b { color: #fff; }
+.mk-app-tag { font-size: 10px; padding: 0 4px; border-radius: 3px; background: #35373b; color: #abadb0; }
+.mk-slack-head .mk-muted { font-size: 12px; }
+.mk-attach { border-left: 4px solid #2eb67d; padding: 6px 0 6px 12px; margin-top: 10px; }
+.mk-attach.mk-error { border-left-color: #e01e5a; }
+.mk-attach-title { color: #fff; font-weight: 700; margin-bottom: 4px; white-space: pre; }
+.mk-fields { margin: 0; display: grid; gap: 2px; }
+.mk-fields div { display: flex; gap: 6px; }
+.mk-fields dt { color: #9a9ca3; }
+.mk-fields dd { margin: 0; }
+.mk-level { margin-top: 4px; color: #9a9ca3; }
+.mk-level b { color: #d1d2d3; }
+.mk-error .mk-level b { color: #ff7a9a; }
+
+/* 배포 안내 */
+.mk-deploy-title { color: #fff; font-weight: 700; margin-bottom: 10px; }
+.mk-deploy-group { margin-bottom: 8px; }
+.mk-deploy-group b { color: #fff; }
+.mk-deploy-group ul { margin: 2px 0 0; padding-left: 18px; }
+.mk-deploy-foot { color: #9a9ca3; font-style: italic; }
+
+/* 텔레그램 */
+.mk-tg { background: linear-gradient(160deg, #2b2340, #1c2033); padding: 18px; display: flex; justify-content: flex-start; }
+.mk-tg-bubble { position: relative; max-width: 420px; background: #2d2b3a; color: #f2f2f5; border-radius: 16px 16px 16px 4px; padding: 12px 16px 22px; font-size: 15px; }
+.mk-tg-bubble p { margin: 0; }
+.mk-tg-bubble .mk-tg-gap { margin-top: 14px; }
+.mk-tg-time { position: absolute; right: 12px; bottom: 6px; font-size: 11px; color: #9a98a8; }
+
+/* PC 대시보드 */
+.mk-dash { background: #17181b; color: #d8d9dc; font-size: 13px; }
+.mk-intel { padding: 14px 18px; }
+.mk-intel-head { color: #9a9ca3; font-weight: 700; margin: 6px 0 6px; }
+.mk-intel-list { list-style: none; margin: 0 0 10px; padding: 0; }
+.mk-intel-list li { display: flex; flex-wrap: wrap; gap: 0 8px; padding: 7px 0; border-bottom: 1px solid #26282d; }
+.mk-intel-title { color: #eceef1; }
+.mk-tag { color: #f2f2f5; font-weight: 700; }
+.mk-tag-good { color: #ff6b6b; }
+.mk-ml { display: grid; grid-template-columns: 150px 1fr; }
+.mk-ml-side { background: #121316; padding: 14px 10px; border-right: 1px solid #26282d; }
+.mk-ml-brand { color: #fff; font-weight: 700; margin: 0 6px 12px; }
+.mk-ml-menu { padding: 6px; border-radius: 6px; color: #a7a9ae; }
+.mk-ml-menu.on { background: #26282d; color: #fff; }
+.mk-ml-main { padding: 16px 18px; min-width: 0; overflow-x: auto; }
+.mk-ml-title { color: #fff; font-size: 17px; font-weight: 700; }
+.mk-ml-sub { font-size: 12px; margin: 2px 0 10px; }
+.mk-ml table { width: 100%; border-collapse: collapse; white-space: nowrap; }
+.mk-ml th { text-align: left; color: #9a9ca3; font-weight: 500; padding: 6px 8px; border-bottom: 1px solid #26282d; }
+.mk-ml td { padding: 7px 8px; border-bottom: 1px solid #222428; }
+.mk-bar { display: inline-block; width: 64px; height: 6px; border-radius: 3px; background: #2c2e33; margin-right: 8px; vertical-align: middle; overflow: hidden; }
+.mk-bar i { display: block; height: 100%; background: #4c8dff; }
+@media (max-width: 560px) {
+  .mk-ml { grid-template-columns: 1fr; }
+  .mk-ml-side { display: none; }
+}
+
+/* 대표 이미지 자리 */
+.mock-frame .mk { border-radius: 0; }
+.case-media-mock { display: grid; place-items: center; padding: 32px; }
+.case-media-mock .mk { width: 100%; max-width: 460px; box-shadow: 0 24px 50px rgba(120, 50, 10, 0.28); transition: transform 0.4s ease; }
+.case-card:hover .case-media-mock .mk { transform: translate(-6px, -6px); }
+.case-media-mock .mk-ml { grid-template-columns: 1fr; }
+.case-media-mock .mk-ml-side { display: none; }

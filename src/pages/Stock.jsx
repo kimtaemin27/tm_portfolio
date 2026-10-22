@@ -4,9 +4,7 @@ import {
   ProjectHero, RoleSplit, Section, Table,
 } from '../components/ui.jsx'
 import arch from '../assets/images/arch.svg'
-import pcMl from '../assets/images/pc_ml.webp'
-import pcIntel from '../assets/images/pc_intel.webp'
-import figJudge from '../assets/images/fig_judge.webp'
+import { DashIntel, DashML, MockFigure, MockFrame, TelegramJudgeAlert } from '../components/mocks.jsx'
 import figReportTg from '../assets/images/fig_report_tg.webp'
 import figReportHtml from '../assets/images/fig_report_html.webp'
 import figOps from '../assets/images/fig_ops.webp'
@@ -25,7 +23,7 @@ export default function Stock() {
           ['AI 활용', '개발 전 과정에 Claude Code, 서비스 기능에는 Claude CLI 기반 판정·리포트 생성'],
         ]}
         chips={['Python', 'FastAPI', 'MySQL', 'Docker', 'Claude Code', 'Claude CLI', 'LightGBM']}
-        cover={{ src: pcIntel, alt: 'PC 대시보드 종목 인텔 화면: 뉴스와 공시마다 AI 판정 결과가 붙어 있다' }}
+        visual={<MockFrame label="PC 대시보드 종목 인텔 예시: 뉴스와 공시마다 AI 판정 결과가 붙어 있다"><DashIntel /></MockFrame>}
         stats={[
           ['1,059개', '커밋'],
           ['약 7.7만 줄', '코드'],
@@ -154,11 +152,9 @@ export default function Stock() {
 
         <Section no="05" title="결과">
           <p>판정 결과는 PC 대시보드의 종목별 화면과 텔레그램 알림으로 확인합니다.</p>
-          <Figure
-            narrow
-            images={[{ src: figJudge, alt: '텔레그램 악재 감지 알림: 공시 제목, 점수, 확신도, 판정 사유' }]}
-            caption="텔레그램 악재 알림. 점수, 확신도, 사유를 보내고 매매에는 반영하지 않는다고 함께 적습니다."
-          />
+          <MockFigure narrow caption="텔레그램 악재 알림. 점수, 확신도, 사유를 보내고 매매에는 반영하지 않는다고 함께 적습니다. 실제 화면 형식을 바탕으로 다시 그린 예시이며, 내용은 일반화한 가상 값입니다.">
+            <TelegramJudgeAlert />
+          </MockFigure>
           <p>보유 종목 리포트는 텔레그램 요약 메시지와 첨부 HTML로 하루 2회 발송됩니다.</p>
           <Figure
             images={[
@@ -167,10 +163,9 @@ export default function Stock() {
             ]}
             caption="왼쪽: 텔레그램 요약 메시지 / 오른쪽: 첨부 HTML 리포트. 종목명과 가격은 가렸습니다."
           />
-          <Figure
-            images={[{ src: pcMl, alt: 'PC 대시보드 예측 모델 화면: 종목별 LightGBM 도달확률 예측 결과' }]}
-            caption="PC 대시보드 예측 모델 화면. LightGBM 도달확률 예측 결과이며, 실거래와 분리된 검증용 기록입니다."
-          />
+          <MockFigure caption="PC 대시보드 예측 모델 화면. LightGBM 도달확률 예측 결과이며, 실거래와 분리된 검증용 기록입니다. 실제 화면 형식을 바탕으로 다시 그린 예시이며, 내용은 일반화한 가상 값입니다.">
+            <DashML />
+          </MockFigure>
         </Section>
 
         <Section no="06" title="실패와 수정">
