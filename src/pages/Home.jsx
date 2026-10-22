@@ -1,5 +1,6 @@
 import { Link } from 'react-router'
 import { EMAIL } from '../components/Layout.jsx'
+import Skills from '../components/Skills.jsx'
 import { DashML, SlackOpsAlert } from '../components/mocks.jsx'
 import excelRules from '../assets/images/excel/rules.webp'
 import convoyBoard from '../assets/images/convoy/board.webp'
@@ -11,15 +12,6 @@ const CAREER = [
   { period: '2023.04 ~ 2024.10', company: '디자인 위브', desc: '쇼핑몰 구축, 쿠폰·할인 정책 정의' },
   { period: '2022.08 ~ 2023.03', company: '(주)비즈웍스', desc: '급여·연말정산 기준 반영, 업무 자동화' },
 ]
-
-const SKILLS = [
-  ['AI 활용', ['Claude Code', 'Claude CLI']],
-  ['데이터', ['SQL (MySQL, Oracle)', '데이터 추출·분석', 'Firebase']],
-  ['문서', ['Notion', 'Markdown 웹 문서', '설계·배포·운영 절차']],
-  ['개발', ['PHP', 'Laravel', 'Java', 'JavaScript']],
-  ['외부 연동', ['토스페이먼츠', 'NICE 본인인증', '카카오 알림톡', '외부 보험 플랫폼 API']],
-]
-
 
 export default function Home() {
   return (
@@ -224,14 +216,7 @@ export default function Home() {
             <div className="block-head" style={{ marginBottom: 36 }}>
               <div><h2>보유 기술</h2></div>
             </div>
-            <div className="skill-groups">
-              {SKILLS.map(([group, items]) => (
-                <div key={group} className="skill-group">
-                  <h3>{group}</h3>
-                  <ul className="chips">{items.map((s) => <li key={s}>{s}</li>)}</ul>
-                </div>
-              ))}
-            </div>
+            <Skills />
           </div>
         </div>
       </section>

@@ -1,13 +1,6 @@
 import { Link } from 'react-router'
 import { Article, NextProject, ProjectHero, Section } from '../components/ui.jsx'
-
-const SKILLS = [
-  ['AI 활용', ['Claude Code', 'Claude CLI']],
-  ['데이터', ['SQL (MySQL, Oracle) 데이터 추출·분석', 'Firebase']],
-  ['문서', ['Notion', 'Markdown 기반 웹 문서 (설계·배포·운영 절차 문서)']],
-  ['개발', ['PHP', 'Laravel', 'Java', 'JavaScript']],
-  ['외부 연동', ['토스페이먼츠', 'NICE 본인인증', '카카오 알림톡', '외부 보험 플랫폼 API']],
-]
+import Skills from '../components/Skills.jsx'
 
 function Company({ name, period, role, children }) {
   return (
@@ -32,9 +25,9 @@ export default function Career() {
         lead="웹 에이전시, 솔루션 회사, 플랫폼 회사에서 백엔드 개발을 하며 정책과 기준을 정하는 일을 함께 맡아 왔습니다."
         stats={[
           ['3년 10개월', '총 경력'],
-          ['4곳', '회사'],
-          ['400~500곳', '비즈웍스 ERP 기업 고객'],
-          ['716건', '일괄 발송을 막은 기존 견적'],
+          ['400~500곳', '기업별 하위도메인으로 운영한 멀티테넌트 ERP 고객사'],
+          ['11종', '결제·정산·인증·공시 외부 API 연동'],
+          ['28종', '직접 쓴 기획 문서 (개인 프로젝트 3개)'],
         ]}
       />
 
@@ -86,7 +79,7 @@ export default function Career() {
             </ul>
           </Company>
 
-          <Company name="(주)비즈웍스" period="2022.08 ~ 2023.03" role="인사·노무 ERP 솔루션(기업 고객 400~500곳) · 개발 2명 중 급여·연말정산 영역 기획 및 개발">
+          <Company name="(주)비즈웍스" period="2022.08 ~ 2023.03" role="인사·노무 ERP 솔루션(기업 고객 400~500곳, 기업별 하위도메인으로 운영하는 멀티테넌트 구조) · 개발 2명 중 급여·연말정산 영역 기획 및 개발">
             <h4>국세청 연말정산 연동</h4>
             <ul>
               <li>국세청이 배포하는 연말정산 모듈(JAR)을 연동해 자료 판독, 세액 계산, 제출 파일 생성까지 이어지는 처리 흐름을 구성했습니다.</li>
@@ -111,14 +104,7 @@ export default function Career() {
         </Section>
 
         <Section no="02" title="보유 기술">
-          <div className="skill-groups">
-            {SKILLS.map(([group, items]) => (
-              <div key={group} className="skill-group">
-                <h3>{group}</h3>
-                <ul className="chips">{items.map((s) => <li key={s}>{s}</li>)}</ul>
-              </div>
-            ))}
-          </div>
+          <Skills />
         </Section>
       </Article>
 

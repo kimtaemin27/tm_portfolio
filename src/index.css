@@ -229,7 +229,7 @@ code {
 .home-career { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
 .skill-groups { display: grid; gap: 14px; }
 .skill-group { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 16px 18px; }
-.skill-group h3 { font-size: 0.85rem; color: var(--muted); font-weight: 700; margin-bottom: 8px; }
+.skill-group h3 { font-size: 0.85rem; color: var(--muted); font-weight: 700; margin: 0 0 10px; }
 .skill-group .chips li { background: var(--bg); }
 @media (max-width: 860px) { .home-career { grid-template-columns: 1fr; gap: 48px; } }
 
@@ -623,3 +623,8 @@ main:has(.contact) + .site-footer .footer-inner { display: none; }
 .case-card:hover .case-media-mock .mk { transform: translate(-6px, -6px); }
 .case-media-mock .mk-ml { grid-template-columns: 1fr; }
 .case-media-mock .mk-ml-side { display: none; }
+.skill-sub { margin: 0; display: grid; gap: 10px; }
+.skill-sub > div { display: grid; grid-template-columns: 110px 1fr; gap: 10px; align-items: start; }
+.skill-sub dt { font-size: 0.82rem; font-weight: 700; color: var(--text-sub); padding-top: 4px; }
+.skill-sub dd { margin: 0; }
+@media (max-width: 560px) { .skill-sub > div { grid-template-columns: 1fr; gap: 4px; } }
