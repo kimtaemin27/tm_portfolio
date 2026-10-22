@@ -5,6 +5,7 @@ export const EMAIL = 'ktm3628@naver.com'
 
 const NAV = [
   { to: '/excel', label: 'ExcelReader' },
+  { to: '/convoy', label: 'Convoy' },
   { to: '/stock', label: '주식 자동매매' },
   { to: '/automation', label: '업무 자동화' },
   { to: '/career', label: '경력' },

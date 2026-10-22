@@ -285,7 +285,7 @@ export default function Excel() {
         </Section>
       </Article>
 
-      <NextProject to="/stock" label="다음 프로젝트" title="주식 자동매매 시스템" desc="개인 프로젝트 · AI를 서비스 기능에 안전하게 접목한 사례" />
+      <NextProject to="/convoy" label="다음 프로젝트" title="Convoy" desc="개인 프로젝트 · AI 작업자 여럿을 동시에 돌리고 조율은 코드가 맡는 실행 엔진" />
     </>
   )
 }

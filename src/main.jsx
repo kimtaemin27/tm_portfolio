@@ -7,6 +7,7 @@ import Home from './pages/Home.jsx'
 import Stock from './pages/Stock.jsx'
 import Automation from './pages/Automation.jsx'
 import Excel from './pages/Excel.jsx'
+import Convoy from './pages/Convoy.jsx'
 import Career from './pages/Career.jsx'
 import NotFound from './pages/NotFound.jsx'
 
@@ -17,6 +18,7 @@ const router = createBrowserRouter(
       children: [
         { index: true, element: <Home /> },
         { path: 'excel', element: <Excel /> },
+        { path: 'convoy', element: <Convoy /> },
         { path: 'stock', element: <Stock /> },
         { path: 'automation', element: <Automation /> },
         { path: 'career', element: <Career /> },

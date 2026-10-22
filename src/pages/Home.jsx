@@ -3,6 +3,7 @@ import { EMAIL } from '../components/Layout.jsx'
 import pcMl from '../assets/images/pc_ml.webp'
 import figAibot from '../assets/images/fig_aibot.webp'
 import excelRules from '../assets/images/excel/rules.webp'
+import convoyBoard from '../assets/images/convoy/board.webp'
 
 const CAREER = [
   { period: '2025.10 ~ 재직 중', company: '(주)준컴퍼니 (카랩)', desc: '알림 발송 기준 수립, 보험 연동·자동 정산, 운영 요청 검토', now: true },
@@ -80,6 +81,25 @@ export default function Home() {
                 <span className="case-more">자세히 보기</span>
               </div>
             </Link>
+
+            <Link to="/convoy" className="case-card reveal">
+              <div className="case-media"><img src={convoyBoard} alt="" /></div>
+              <div className="case-body">
+                <span className="pill pill-light">개인 프로젝트 · AI 실행 엔진</span>
+                <h3>Convoy</h3>
+                <p>
+                  계획서의 독립 Task를 여러 AI 작업자에게 동시에 맡기고, 순서·잠금·병합은 코드가 맡는 실행 엔진입니다.
+                  기획 문서 10종, 구현, 순차 대 병렬 실측까지 직접 했습니다.
+                </p>
+                <dl className="case-nums">
+                  <div><dd>53.1%</dd><dt>소요시간 단축</dt></div>
+                  <div><dd>0건</dd><dt>main 오염</dt></div>
+                  <div><dd>0건</dd><dt>조용한 실패</dt></div>
+                </dl>
+                <span className="case-more">자세히 보기</span>
+              </div>
+            </Link>
+
             <Link to="/stock" className="case-card reveal">
               <div className="case-media"><img src={pcMl} alt="" /></div>
               <div className="case-body">
@@ -116,6 +136,18 @@ export default function Home() {
             </Link>
 
           </div>
+
+          <article className="plan-card reveal">
+            <div className="plan-card-head">
+              <span className="pill pill-warn">기획 단계</span>
+              <h3>promptbench</h3>
+            </div>
+            <p>
+              업무별 정답셋으로 Claude 모델, effort, 프롬프트 조합을 한꺼번에 돌려 정확도·비용·속도를 비교하고,
+              미리 정한 규칙으로 업무별 기본값을 고르는 CLI입니다. 과금 호출 전에는 예상 비용을 보여 주고 승인을 받습니다.
+            </p>
+            <p className="plan-card-status">기획 문서 8종 완료 · 구현과 실측 예정 (실측 예산 상한 $5)</p>
+          </article>
         </div>
       </section>
 
