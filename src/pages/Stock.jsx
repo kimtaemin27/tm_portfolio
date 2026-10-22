@@ -4,6 +4,11 @@ import {
   ProjectHero, RoleSplit, Section, Table, Zoomable,
 } from '../components/ui.jsx'
 import arch from '../assets/images/arch.svg'
+import { CodeTabs, CodeTree } from '../components/code.jsx'
+import noToolsCode from '../code/stock/no_tools.py?raw'
+import envKeysCode from '../code/stock/env_keys.py?raw'
+import parseCode from '../code/stock/parse.py?raw'
+import isErrorCode from '../code/stock/is_error.py?raw'
 import { DashIntel, DashML, MockFigure, MockFrame, TelegramJudgeAlert } from '../components/mocks.jsx'
 import pcIntel from '../assets/images/pc_intel.webp'
 import pcMl from '../assets/images/pc_ml.webp'
@@ -153,7 +158,66 @@ export default function Stock() {
           ]} />
         </Section>
 
-        <Section no="05" title="결과">
+        <Section no="05" title="코드 구조 — AI 실행기는 서버 밖에">
+          <p>
+            서버(Docker)와 AI 실행기(호스트 데몬)로 나뉩니다. 아래는 AI 판정과 수집에 관련된 부분만 추렸고,
+            주문과 매매 전략 코드는 공개하지 않습니다.
+          </p>
+          <CodeTree groups={[
+            {
+              title: '서버',
+              note: 'Docker, DB와 주문 코드가 있는 곳',
+              rows: [
+                ['app/api/', 'REST API. 대시보드와 AI 실행기 연동'],
+                ['dart_client.py', 'DART 공시 목록 조회'],
+                ['edgar_client.py', 'SEC EDGAR 공시 수집'],
+                ['stock_intel_collector.py', '종목 뉴스·섹터 자료 수집 (표시 전용)'],
+                ['holdings_report.py', '리포트 자료 조립과 HTML 생성'],
+                ['app/trader/', '주문 엔진 (공개하지 않음)'],
+              ],
+            },
+            {
+              title: 'AI 실행기',
+              note: '호스트, 키 2개만 앎',
+              rows: [
+                ['judge_daemon.py', '5분마다 대기 건 조회, 판정, 결과 등록. 서버 API만 호출'],
+                ['holdings_report_daemon.py', '리포트 서술 생성'],
+                ['judge_backend.py', 'Claude CLI 호출. 도구 차단, 빈 작업 폴더, 최소 환경'],
+                ['event_judge.py', '판정 프롬프트와 응답 검증. 네트워크 없음'],
+              ],
+            },
+          ]} />
+          <h3>핵심 코드</h3>
+          <p>앞의 "AI 실행기의 권한 최소화"가 실제로 들어 있는 곳입니다. 주석은 줄여 옮겼고, 생략한 줄은 ...으로 표시했습니다.</p>
+          <CodeTabs items={[
+            {
+              file: 'app/services/judge_backend.py',
+              title: '도구 차단',
+              why: '처음엔 허용 목록을 비우면 도구가 막힌다고 생각했지만, 미끼 파일로 직접 시험해 보니 그대로 읽었습니다. 실제로 막히는 플래그를 실측으로 찾아 세 겹으로 걸었습니다.',
+              code: noToolsCode,
+            },
+            {
+              file: 'scripts/judge_daemon.py · judge_backend.py',
+              title: '키 2개만 전달',
+              why: '데몬은 환경변수 파일에서 키 두 개만 골라 읽고, CLI를 띄울 때도 자식 환경을 직접 만듭니다. 기본값대로 두면 부모 환경 전체가 AI 프로세스에 넘어갑니다.',
+              code: envKeysCode,
+            },
+            {
+              file: 'app/services/event_judge.py',
+              title: '판정 결과 재검증',
+              why: '보내지 않은 id, 목록 밖 라벨, 범위 밖 점수는 버립니다. 시황 기사에 호재·악재가 붙어 오면 코드가 중립으로 내립니다.',
+              code: parseCode,
+            },
+            {
+              file: 'app/services/judge_backend.py',
+              title: '멈춘 판정 찾기',
+              why: '로그인 만료로 판정이 3일 멈춘 일이 있었습니다. 종료코드만 보고 원인을 버리고 있었기 때문이라, 종료코드와 응답 본문을 둘 다 보도록 고쳤습니다.',
+              code: isErrorCode,
+            },
+          ]} />
+        </Section>
+
+        <Section no="06" title="결과">
           <p>판정 결과는 PC 대시보드의 종목별 화면과 텔레그램 알림으로 확인합니다.</p>
           <MockFigure pair caption="텔레그램 악재 알림. 점수, 확신도, 사유를 보내고 매매에는 반영하지 않는다고 함께 적습니다. 왼쪽: 원본 내용을 옮겨 선명하게 다시 그린 화면 / 오른쪽: 원본 캡처">
             <TelegramJudgeAlert />
@@ -180,7 +244,7 @@ export default function Stock() {
           />
         </Section>
 
-        <Section no="06" title="실패와 수정">
+        <Section no="07" title="실패와 수정">
           <Fixes items={[
             { problem: '도구를 막는다고 설명된 옵션(--allowedTools "")을 켠 상태에서 검증용 파일을 읽게 하자, 파일을 그대로 읽어 반환했습니다.', fix: '실제로 차단되는 옵션(--disallowedTools)으로 교체했습니다.' },
             { problem: '외부 CLI가 인증 만료를 응답 본문에만 담고 종료 코드도 바뀌어, 판정이 3일간 멈췄습니다.', fix: '종료 코드와 상관없이 응답 본문을 먼저 확인하도록 고쳤습니다.' },
@@ -196,7 +260,7 @@ export default function Stock() {
           />
         </Section>
 
-        <Section no="07" title="회고">
+        <Section no="08" title="회고">
           <Callout>
             <p>
               보안 옵션을 직접 시험해 본 뒤로, 차단이나 격리를 한다고 설명된 설정은 문서를 그대로 믿지 않고 직접 시험한 다음에 채택한다는 원칙을 세웠습니다.

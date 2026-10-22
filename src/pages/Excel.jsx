@@ -3,6 +3,11 @@ import {
   Article, Callout, Decisions, DocList, Figure, Fixes, Flow, Metrics, More, NextProject,
   Problems, ProjectHero, RoleCards, Section, Table,
 } from '../components/ui.jsx'
+import { CodeTabs, CodeTree } from '../components/code.jsx'
+import parseCode from '../code/excel/parse.py?raw'
+import engineCode from '../code/excel/engine.py?raw'
+import maskCode from '../code/excel/mask.py?raw'
+import recipeCode from '../code/excel/recipe.py?raw'
 import rules from '../assets/images/excel/rules.webp'
 import diagnose from '../assets/images/excel/diagnose.webp'
 import result from '../assets/images/excel/result.webp'
@@ -157,7 +162,67 @@ export default function Excel() {
           </More>
         </Section>
 
-        <Section no="04" title="결과">
+        <Section no="04" title="코드 구조 — AI 응답은 검사를 통과해야 규칙이 된다">
+          <p>
+            백엔드는 Python과 FastAPI, 화면은 React와 TypeScript입니다. 정리 엔진은 표를 받아 새 표를 돌려주는 순수 함수로만 짰고,
+            AI와 닿는 곳은 개인정보 가리기, 제안 요청, 응답 검증 세 곳으로 모았습니다.
+          </p>
+          <CodeTree groups={[
+            {
+              title: 'AI와 닿는 코드',
+              note: '보내기 전에 가리고, 받은 뒤에 검사',
+              rows: [
+                ['profile.py', '진단. 열마다 값 유형, 형식 분포, 문제'],
+                ['mask.py', 'AI로 보내기 전 개인정보 가리기'],
+                ['ai.py', '제안 요청(구조화 출력)과 응답 검증'],
+                ['assemble.py', '제안 + 사람의 승인과 답 → 실행할 규칙'],
+                ['replay.py', 'AI 응답 녹화·재생. 키 없이도 같은 흐름 시연'],
+              ],
+            },
+            {
+              title: '정리하는 코드',
+              note: 'AI 없이 결정적으로 동작',
+              rows: [
+                ['table.py', '불변 표. 엔진이 다루는 유일한 데이터 형태'],
+                ['ops.py', '정리 동작 12종. 입력 표를 바꾸지 않음'],
+                ['engine.py', '규칙 적용, 변경 기록, 불변식 검사'],
+                ['recipe.py', '레시피, 양식 지문, 처음 보는 값'],
+                ['export.py', '통합 주문표, 송장 양식, 변경 보고서'],
+                ['eval/', '정답에서 오염 데이터 만들기, 셀 단위 채점'],
+              ],
+            },
+          ]} />
+          <h3>핵심 코드</h3>
+          <p>앞의 역할 분리와 안전 장치가 실제로 들어 있는 곳입니다. 원본에서 줄만 줄였고 동작은 그대로입니다.</p>
+          <CodeTabs items={[
+            {
+              file: 'app/backend/excelreader/ai.py',
+              title: 'AI 응답 검증',
+              why: '표준 열이 아닌 곳에 짝짓기, 목록 밖 동작, 매개변수 오류 중 하나라도 있으면 응답 전체를 버립니다. 애매한 날짜의 답은 AI가 미리 넣어 와도 지우고 사람에게 묻습니다.',
+              code: parseCode,
+            },
+            {
+              file: 'app/backend/excelreader/engine.py',
+              title: '불변식 검사',
+              why: '행 수, 금액 합, 원본 불변, 변경 기록 네 가지를 매번 검사합니다. 깨지면 결과를 저장하지 않고, 규칙을 하나씩 늘려 다시 돌려서 처음 깨뜨린 규칙을 찾아 보여 줍니다.',
+              code: engineCode,
+            },
+            {
+              file: 'app/backend/excelreader/mask.py',
+              title: '개인정보 가리기',
+              why: '열 이름으로 먼저 알아보고, 낯선 열 이름이면 값의 모양으로 다시 봅니다. 색상처럼 반복되는 한글 값은 이름으로 오인하지 않도록 서로 다른 값의 비율까지 봅니다.',
+              code: maskCode,
+            },
+            {
+              file: 'app/backend/excelreader/recipe.py',
+              title: '레시피 재사용',
+              why: '열 이름을 정규화해 양식 지문을 만들고, 같은 지문이면 저장한 규칙을 AI 없이 다시 적용합니다. 레시피 사전에 없는 값이 나오면 그 값만 사람에게 묻습니다.',
+              code: recipeCode,
+            },
+          ]} />
+        </Section>
+
+        <Section no="05" title="결과">
           <p>대표 사례인 주문 파일 3개를 정리한 결과입니다. 실제 AI 응답을 녹화해 재현한 측정값이고, 데이터는 가상입니다.</p>
           <Metrics items={[
             ['360행', '주문 파일 3개'],
@@ -195,7 +260,7 @@ export default function Excel() {
           />
         </Section>
 
-        <Section no="05" title="평가 — 정답에서 거꾸로 만든 시험">
+        <Section no="06" title="평가 — 정답에서 거꾸로 만든 시험">
           <Flow steps={['정답 표 생성', '채널 양식대로 오염 (기록)', 'ExcelReader로 정리', '정답과 셀 단위 비교']} />
           <p>
             사람은 정해진 시나리오대로만 승인하게 해서, AI 품질이 결과에 그대로 드러나게 했습니다.
@@ -220,7 +285,7 @@ export default function Excel() {
           <p>규칙에 따라 기본 모델은 Sonnet 5.5로 정했습니다. 두 모델의 셀 정확도 차이가 0%p라 더 싼 모델을 골랐습니다. 각 모델 1회 측정, 파일당 120행 기준입니다.</p>
         </Section>
 
-        <Section no="06" title="측정이 바꾼 결정">
+        <Section no="07" title="측정이 바꾼 결정">
           <Callout>
             <p>
               첫 측정(p1)은 엔진 상한보다 셀 정확도가 5%p 낮았습니다. 틀린 칸을 열별로 세어 보니 모델이 아니라 모델에 준 정보가 원인이었습니다.
@@ -243,7 +308,7 @@ export default function Excel() {
           ]} />
         </Section>
 
-        <Section no="07" title="문서 체계">
+        <Section no="08" title="문서 체계">
           <p>
             요구사항, 정책, 화면 요소, 정리 동작은 데이터 파일 한 곳에 두고 문서는 ID로만 참조했습니다.
             끊긴 참조와 추적 불일치는 문서를 만들기 전에 검사가 막고, 기능명세서의 예시는 그대로 백엔드 테스트로 실행됩니다.
@@ -260,7 +325,7 @@ export default function Excel() {
           ]} />
         </Section>
 
-        <Section no="08" title="회고와 다음 단계">
+        <Section no="09" title="회고와 다음 단계">
           <div className="two-col">
             <div>
               <h3>잘된 것</h3>

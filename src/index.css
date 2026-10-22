@@ -630,7 +630,7 @@ main:has(.contact) + .site-footer .footer-inner { display: none; }
 @media (max-width: 560px) { .skill-sub > div { grid-template-columns: 1fr; gap: 4px; } }
 
 /* ───────── 코드 구조 ───────── */
-.code-tree { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 8px 0 28px; }
+.code-tree { display: grid; gap: 14px; margin: 8px 0 28px; }
 .code-tree-group { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--shadow); }
 .code-tree-title { font-weight: 800; margin: 0 0 10px; }
 .code-tree-title span { font-weight: 500; font-size: 0.86rem; color: var(--text-sub); }
@@ -638,7 +638,6 @@ main:has(.contact) + .site-footer .footer-inner { display: none; }
 .code-tree li { display: contents; }
 .code-tree li code { justify-self: start; align-self: start; white-space: nowrap; }
 .code-tree li span { color: var(--text-sub); }
-@media (max-width: 860px) { .code-tree { grid-template-columns: 1fr; } }
 @media (max-width: 480px) { .code-tree ul { grid-template-columns: 1fr; row-gap: 2px; } .code-tree li span { margin-bottom: 8px; } }
 
 .code-tabs { margin: 8px 0 32px; }

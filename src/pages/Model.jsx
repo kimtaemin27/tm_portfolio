@@ -2,6 +2,10 @@ import { Link } from 'react-router'
 import {
   Article, Callout, DocList, Figure, Flow, Metrics, NextProject, ProjectHero, Section, Table,
 } from '../components/ui.jsx'
+import { CodeTabs, CodeTree } from '../components/code.jsx'
+import selectionCode from '../code/model/selection.py?raw'
+import gateCode from '../code/model/gate.py?raw'
+import runnerCode from '../code/model/runner.py?raw'
 import chartT1 from '../assets/images/model/chart_t1.webp'
 import chartT2 from '../assets/images/model/chart_t2.webp'
 
@@ -86,7 +90,62 @@ export default function Model() {
           </p>
         </Section>
 
-        <Section no="04" title="실측 결과">
+        <Section no="04" title="코드 구조 — 돈이 나가는 길은 한 줄로">
+          <p>
+            CLI 하나와 모듈 스무 개 남짓입니다. 비용이 드는 길(계획, 승인, 실행)과 평가하는 길(채점, 선정, 리포트)을 나눴고,
+            Anthropic SDK를 부르는 곳은 어댑터 한 곳, 사용 기록(장부)을 쓰는 곳은 runner 한 곳뿐입니다.
+          </p>
+          <CodeTree groups={[
+            {
+              title: '비용을 통제하는 코드',
+              note: '승인 없이는 과금 호출 0건',
+              rows: [
+                ['planner.py', '조합 × 표본 배분, 금액 계산, 계획 해시'],
+                ['estimator.py', '예상·보수·최악 3종 금액'],
+                ['pricing.py', '모델 단가와 요청 비용 (단가표는 설정 파일)'],
+                ['gate.py', '승인 화면과 해시에 묶인 승인'],
+                ['runner.py', '배치 분할, 상한 확인, 제출, 장부 기록'],
+                ['adapters/', 'Batch·동기 호출, 시험용 가짜 어댑터. SDK는 여기서만'],
+              ],
+            },
+            {
+              title: '평가하고 고르는 코드',
+              note: '결과를 본 뒤 바꾸지 않음',
+              rows: [
+                ['tasks/', '업무 정의, 고정 시드 표본 준비'],
+                ['graders/', '분류·추출 채점(순수 함수), 요약 블라인드 채점과 사람 교정'],
+                ['selection.py', '기본값 선정 규칙'],
+                ['report.py', '리포트, 차트, 예상 대 실제 비용 오차'],
+                ['store.py', 'SQLite 표 6개'],
+                ['cli.py', '명령 7개 입구'],
+              ],
+            },
+          ]} />
+          <h3>핵심 코드</h3>
+          <p>앞의 결정과 정책이 실제로 들어 있는 곳입니다. 원본에서 줄만 줄였고 동작은 그대로입니다.</p>
+          <CodeTabs items={[
+            {
+              file: 'src/promptbench/selection.py',
+              title: '기본값 선정 규칙',
+              why: '1등과 차이가 허용폭 안인 조합을 "동급"으로 묶고, 그중 1,000건당 비용이 가장 낮은 것을 고릅니다. 두 조합에 같은 문항을 다시 뽑아 비교하므로 문항 난이도 차이가 섞이지 않습니다.',
+              code: selectionCode,
+            },
+            {
+              file: 'src/promptbench/gate.py',
+              title: '해시에 묶인 승인',
+              why: '승인 기록에 계획 본문의 해시를 남기고, 실행할 때 본문에서 해시를 다시 계산해 비교합니다. 승인 뒤 계획이 바뀌면 실행이 거부됩니다.',
+              code: gateCode,
+            },
+            {
+              file: 'src/promptbench/runner.py',
+              title: '누적 예산 상한',
+              why: '배치를 내기 직전마다 누적 사용액과 다음 배치의 보수적 예상액을 더해 $5 상한과 비교합니다. 제출 도중 끊긴 배치는 다시 내지 않고 멈춰서 이중 과금을 막습니다.',
+              code: runnerCode,
+            },
+          ]} />
+        </Section>
+
+        <Section no="05" title="실측 결과">
           <p>
             문의 분류와 정보 추출은 한국어 음성 비서 발화 데이터(MASSIVE ko-KR, 의도 60종과 슬롯 55종)를, 요약은 BBC 코리아 기사 데이터(XL-Sum)를 썼습니다.
             아래는 사전에 등록한 선정 규칙이 고른 업무별 기본값입니다.
@@ -131,7 +190,7 @@ export default function Model() {
           </p>
         </Section>
 
-        <Section no="05" title="문서 체계">
+        <Section no="06" title="문서 체계">
           <DocList items={[
             { id: 'D01', title: '기획서', desc: '문제 정의, 대안 비교, MVP 범위와 제외, 성공 지표, 리스크', href: doc('D01.pdf'), type: 'pdf' },
             { id: 'D02', title: '요구사항정의서', desc: '기능과 비기능 요구사항, 수용 기준, 추적 매트릭스', href: doc('D02.xlsx'), type: 'xlsx' },
