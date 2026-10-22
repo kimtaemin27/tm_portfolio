@@ -628,3 +628,37 @@ main:has(.contact) + .site-footer .footer-inner { display: none; }
 .skill-sub dt { font-size: 0.82rem; font-weight: 700; color: var(--text-sub); padding-top: 4px; }
 .skill-sub dd { margin: 0; }
 @media (max-width: 560px) { .skill-sub > div { grid-template-columns: 1fr; gap: 4px; } }
+
+/* ───────── 코드 구조 ───────── */
+.code-tree { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 8px 0 28px; }
+.code-tree-group { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--shadow); }
+.code-tree-title { font-weight: 800; margin: 0 0 10px; }
+.code-tree-title span { font-weight: 500; font-size: 0.86rem; color: var(--text-sub); }
+.code-tree ul { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 8px 12px; font-size: 0.9rem; line-height: 1.55; }
+.code-tree li { display: contents; }
+.code-tree li code { justify-self: start; align-self: start; white-space: nowrap; }
+.code-tree li span { color: var(--text-sub); }
+@media (max-width: 860px) { .code-tree { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .code-tree ul { grid-template-columns: 1fr; row-gap: 2px; } .code-tree li span { margin-bottom: 8px; } }
+
+.code-tabs { margin: 8px 0 32px; }
+.code-tab-list { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.code-tab-list button {
+  font: inherit; font-size: 0.9rem; font-weight: 700; cursor: pointer;
+  padding: 8px 16px; border-radius: 999px; border: 1px solid var(--line);
+  background: var(--surface); color: var(--text-sub);
+}
+.code-tab-list button:hover { color: var(--text); border-color: var(--peach); }
+.code-tab-list button.on { background: var(--text); border-color: var(--text); color: #fff; }
+.code-tab-list button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.code-why { margin: 0 0 12px; }
+.code-block { border-radius: var(--radius); overflow: hidden; background: #1f1712; box-shadow: var(--shadow-lg); }
+.code-file { padding: 10px 18px; font: 600 0.8rem ui-monospace, SFMono-Regular, Menlo, monospace; color: #c9b3a3; background: #2a1f18; border-bottom: 1px solid #3a2c22; }
+.code-block pre { margin: 0; padding: 18px; overflow-x: auto; font-size: 0.8rem; line-height: 1.65; color: #f3e6db; }
+.code-block pre code { background: none; border: 0; padding: 0; font-size: inherit; white-space: pre; }
+.tk-c { color: #9b8576; font-style: italic; }
+.tk-s { color: #a8d8a0; }
+.tk-k { color: #ff9a62; }
+.tk-f { color: #ffd27a; }
+.tk-n { color: #f0a8c8; }
+.tk-d { color: #8fc7ff; }

@@ -3,6 +3,11 @@ import {
   Article, Callout, Decisions, DocList, Figure, Fixes, Flow, Metrics, More, NextProject,
   Problems, ProjectHero, RoleCards, Section, Table,
 } from '../components/ui.jsx'
+import { CodeTabs, CodeTree } from '../components/code.jsx'
+import mergeCode from '../code/convoy/merge.py?raw'
+import classifyCode from '../code/convoy/classify.py?raw'
+import priorityCode from '../code/convoy/priority.py?raw'
+import workerCode from '../code/convoy/worker.py?raw'
 import arch from '../assets/images/convoy/arch.webp'
 import check from '../assets/images/convoy/check.webp'
 import board from '../assets/images/convoy/board.webp'
@@ -127,7 +132,72 @@ export default function Convoy() {
           </More>
         </Section>
 
-        <Section no="05" title="화면 — 돌리기 전에 알고, 도는 중에 보인다">
+        <Section no="05" title="코드 구조 — 규칙이 코드 어디에 있나">
+          <p>
+            Python 표준라이브러리만으로 짠 모듈 스물여섯 개입니다. 무엇을 할지 정하는 코드와 실제로 실행하는 코드를 나눴습니다.
+            정하는 쪽은 시계와 입출력 없이 결과만 돌려주고, 상태 파일은 coordinator 한 곳에서만 씁니다.
+          </p>
+          <CodeTree groups={[
+            {
+              title: '정하는 코드',
+              note: '순수 함수, 상태를 바꾸지 않음',
+              rows: [
+                ['planner.py', '의존 그래프, 함께 시작할 묶음, 이론상 단축률'],
+                ['scheduler.py', '시작할 Task 고르기와 작업자 배정'],
+                ['priority.py', '우선권과 aging'],
+                ['arbiter.py', '병합 차례와 독점 자원 대여'],
+                ['classify.py', '실패를 환경 실패와 작업 실패로 분류'],
+                ['board_*.py', '메시지·명령·이벤트에 따른 상태 전이'],
+                ['render.py', '상황판과 check 출력'],
+              ],
+            },
+            {
+              title: '실행하는 코드',
+              note: '부작용은 여기에만',
+              rows: [
+                ['coordinator.py', '주기 루프. 상태 파일을 쓰는 유일한 곳'],
+                ['supervisor.py', '작업자 기동, 종료 판정, 끊긴 작업자 재연결'],
+                ['gitops.py', 'worktree, 통합 브랜치 병합, push 차단'],
+                ['backends/', 'claude.py 실제 작업자, fake.py 대본대로 움직이는 시험용 작업자'],
+                ['cli.py', '명령 입구. 요청 파일(inbox)과 git만 쓴다'],
+              ],
+            },
+          ]} />
+          <p>
+            시험용 작업자 덕분에 엔진 테스트 610개는 실제 Claude를 부르지 않고 API 비용 없이 3분 안에 돕니다.
+            충돌, 인증 만료, 작업자 죽음 같은 상황은 대본으로 재현하고, 실제 Claude를 부르는 테스트는 따로 5개만 둡니다.
+          </p>
+          <h3>핵심 코드</h3>
+          <p>앞의 조율 규칙이 실제로 들어 있는 곳입니다. 원본에서 줄만 줄였고 동작은 그대로입니다.</p>
+          <CodeTabs items={[
+            {
+              file: 'src/convoy/gitops.py',
+              title: '병합과 되감기',
+              why: '통합 브랜치에 하나씩 병합하고 바로 테스트합니다. 충돌이나 테스트 실패면 병합 전 커밋으로 되돌리고 그 Task만 결과로 올려, 다른 Task는 계속 돕니다.',
+              code: mergeCode,
+            },
+            {
+              file: 'src/convoy/classify.py',
+              title: '실패 분류',
+              why: '종료코드만 보면 인증 만료와 코드 오류를 구분할 수 없어 출력 본문까지 봅니다. 신호마다 실제로 재현했는지(실측), 문서로만 아는지(추정)를 주석으로 남겼고, 모르면 작업 실패로 봅니다.',
+              code: classifyCode,
+            },
+            {
+              file: 'src/convoy/priority.py',
+              title: '우선권과 aging',
+              why: '오래 기다린 Task가 영영 밀리지 않게 대기 시간만큼 순위를 올립니다. 현재 시각을 인자로 받기 때문에, 시드를 고정한 시뮬레이션으로 이 성질을 테스트할 수 있습니다.',
+              code: priorityCode,
+            },
+            {
+              file: 'src/convoy/backends/claude.py · gitops.py',
+              title: '작업자 권한',
+              why: '"push 하지 마"는 프롬프트에 부탁으로만 적고, 실제로 막는 것은 허용 도구 목록과 git 환경 변수입니다. 프롬프트는 부탁이고 강제는 코드입니다.',
+              code: workerCode,
+            },
+          ]} />
+        </Section>
+
+        <Section no="06" title="화면 — 돌리기 전에 알고, 도는 중에 보인다">
           <p>아래 화면은 기획 문서의 예시 화면입니다. 계획서와 수치는 설명용 가상 예시입니다.</p>
           <Figure
             images={[{ src: check, alt: 'convoy check 예시 화면: Task별 의존 해석, 함께 시작할 수 있는 묶음, 이론상 단축률, 순환 의존 시 실행 거부' }]}
@@ -146,7 +216,7 @@ export default function Convoy() {
           />
         </Section>
 
-        <Section no="06" title="실측 결과">
+        <Section no="07" title="실측 결과">
           <Callout>
             <p>
               병렬 이득은 단일 수치가 아니라 계획의 의존 구조가 정합니다. 독립 Task가 많은 계획은 이론 한계가 50%, 앞 Task를 줄줄이 이어받는 계획은 0%입니다.
@@ -202,7 +272,7 @@ export default function Convoy() {
           </More>
         </Section>
 
-        <Section no="07" title="정직한 한계">
+        <Section no="08" title="정직한 한계">
           <Flow steps={['측정한 것은 측정값으로', '못 잰 것은 "측정하지 않음"으로', '추정은 "추정"으로']} />
           <ul>
             <li>
@@ -219,7 +289,7 @@ export default function Convoy() {
           </ul>
         </Section>
 
-        <Section no="08" title="문서 체계">
+        <Section no="09" title="문서 체계">
           <p>
             요구사항(기능 56 · 비기능 16), 정책 21, 명령 11, 장면 12, 상태, 기술 결정은 데이터 파일 한 곳에 두고 문서는 ID로만 참조했습니다.
             실측 리포트의 수치는 손으로 쓰지 않고 실측 결과 파일에서 표로 생성합니다. 끊긴 ID 참조가 있으면 빌드가 실패합니다.
@@ -238,7 +308,7 @@ export default function Convoy() {
           ]} />
         </Section>
 
-        <Section no="09" title="회고와 다음 단계">
+        <Section no="10" title="회고와 다음 단계">
           <div className="two-col">
             <div>
               <h3>잘된 것</h3>
