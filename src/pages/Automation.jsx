@@ -3,8 +3,6 @@ import {
   Article, Callout, Figure, Fixes, Flow, Metrics, NextProject, Problems,
   ProjectHero, RoleSplit, Section, Table,
 } from '../components/ui.jsx'
-import figBotlist from '../assets/images/fig_botlist2.webp'
-import figAibot from '../assets/images/fig_aibot.webp'
 import figDeploy1 from '../assets/images/fig_deploy1.webp'
 import figDeploy2 from '../assets/images/fig_deploy2.webp'
 import figSlack from '../assets/images/fig_slack.webp'
@@ -85,14 +83,6 @@ export default function Automation() {
             ['3건', '7일 이상 방치된 요청, 모두 높음 등급'],
           ]} />
           <p>요청이 관리자 영역에 몰려 있고 오래 남은 요청이 모두 높음 등급이라는 점이 드러나, 오래 남은 요청의 우선순위를 다시 조정했습니다.</p>
-          <Figure
-            images={[
-              { src: figBotlist, alt: 'AI가 정리한 슬랙 요청 목록: 처리현황, 구분, 서비스, 우선순위 열 (요청 내용은 가림)' },
-              { src: figAibot, alt: '매일 오전 9시 공유되는 대기 요청 17건 현황 (요청 제목은 가림)' },
-            ]}
-            caption="왼쪽: AI가 정리한 요청 목록(요청 내용은 가림) / 오른쪽: 매일 오전 9시 공유되는 대기 요청 현황(요청 제목은 가림)"
-          />
-
           <h3>다음에 할 일</h3>
           <p>확인이 필요한 건이 15건으로 많았습니다. 요청이 접수될 때 화면 위치, 재현 방법, 기한 같은 필수 정보를 봇이 먼저 되묻도록 보완할 계획입니다.</p>
         </Section>

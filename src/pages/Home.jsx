@@ -1,7 +1,7 @@
 import { Link } from 'react-router'
 import { EMAIL } from '../components/Layout.jsx'
 import pcMl from '../assets/images/pc_ml.webp'
-import figAibot from '../assets/images/fig_aibot.webp'
+import figSlack from '../assets/images/fig_slack.webp'
 import excelRules from '../assets/images/excel/rules.webp'
 import convoyBoard from '../assets/images/convoy/board.webp'
 import chartT1 from '../assets/images/model/chart_t1.webp'
@@ -66,13 +66,13 @@ export default function Home() {
 
           <div className="showcase">
             <Link to="/automation" className="case-card reveal">
-              <div className="case-media"><img src={figAibot} alt="" /></div>
+              <div className="case-media case-media-fit"><img src={figSlack} alt="" /></div>
               <div className="case-body">
                 <span className="pill pill-light">회사 업무 · 카랩</span>
                 <h3>업무 자동화 사례 4건</h3>
                 <p>
-                  흩어진 사내 요청을 AI가 정리하는 봇, 배포 내용을 현업 문장으로 바꿔 알리는 안내,
-                  Slack 웹훅 운영 알림, 외부 보험 플랫폼 연동과 자동 정산을 정리했습니다.
+                  오류와 주요 이벤트를 Slack으로 바로 알리는 운영 알림, 흩어진 사내 요청을 AI가 정리하는 봇,
+                  배포 내용을 현업 문장으로 바꿔 알리는 안내, 외부 보험 플랫폼 연동과 자동 정산을 정리했습니다.
                 </p>
                 <dl className="case-nums">
                   <div><dd>17건</dd><dt>흩어진 요청을 한 목록으로</dt></div>

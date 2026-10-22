@@ -186,6 +186,9 @@ code {
   transition: transform 0.4s ease;
 }
 .case-card:hover .case-media img { transform: translate(-6px, -6px); }
+/* 작은 캡처는 늘리지 않고 가운데에 둔다 */
+.case-media-fit { display: grid; place-items: center; padding: 32px; }
+.case-media-fit img { position: static; width: auto; max-width: 100%; }
 .case-body { padding: 44px 44px 40px; display: flex; flex-direction: column; }
 .case-body .pill { align-self: flex-start; }
 .case-body h3 { font-size: 1.7rem; font-weight: 800; margin: 16px 0 12px; }
