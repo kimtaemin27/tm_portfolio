@@ -240,7 +240,7 @@ export default function Home() {
       <section className="dark contact">
         <div className="container reveal">
           <p className="eyebrow">Contact</p>
-          <h2>함께 일할 기회를 찾고 있습니다</h2>
+          <h2>현장의 불편을 시스템으로 바꾸는 일을 하고 싶습니다</h2>
           <p>프로젝트나 경력에 대해 궁금한 점이 있으면 편하게 연락 주세요.</p>
           <a className="btn btn-primary" href={`mailto:${EMAIL}`}>{EMAIL}</a>
         </div>

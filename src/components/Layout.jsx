@@ -75,7 +75,7 @@ export default function Layout() {
       <footer className="site-footer">
         <div className="container footer-inner">
           <div>
-            <p className="footer-title">함께 일할 기회를 찾고 있습니다</p>
+            <p className="footer-title">현장의 불편을 시스템으로 바꾸는 일을 하고 싶습니다</p>
           </div>
           <a className="btn btn-primary" href={`mailto:${EMAIL}`}>{EMAIL}</a>
         </div>
