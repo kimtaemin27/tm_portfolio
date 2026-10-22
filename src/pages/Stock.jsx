@@ -28,10 +28,10 @@ export default function Stock() {
         chips={['Python', 'FastAPI', 'MySQL', 'Docker', 'Claude Code', 'Claude CLI', 'LightGBM']}
         visual={<MockFrame label="PC 대시보드 종목 인텔: 뉴스와 공시마다 AI 판정 결과가 붙어 있다"><DashIntel /></MockFrame>}
         stats={[
-          ['1,059개', '커밋'],
-          ['약 7.7만 줄', '코드'],
-          ['1,353건', '테스트'],
-          ['174개', 'REST API'],
+          ['약 4개월', '실계좌 연동 운영 중'],
+          ['5분', '공시·뉴스 판정 주기'],
+          ['하루 2회', '리포트 자동 발송'],
+          ['키 2개', 'AI 실행기에 준 권한 (DB·주문 코드 접근 없음)'],
         ]}
       />
 

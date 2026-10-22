@@ -47,7 +47,7 @@ export default function Home() {
           <dl className="hero-stats">
             <div><dd>3년 10개월</dd><dt>총 경력</dt></div>
             <div><dd>4곳</dd><dt>회사 경험</dt></div>
-            <div><dd>1,059개</dd><dt>개인 프로젝트 커밋</dt></div>
+            <div><dd>4개</dd><dt>기획부터 실측까지 끝낸 개인 프로젝트</dt></div>
             <div><dd>4건</dd><dt>회사 업무 자동화 사례</dt></div>
           </dl>
         </div>
@@ -141,9 +141,9 @@ export default function Home() {
                   주문 환경에 닿지 않도록 실행 위치와 권한을 나눠 설계했습니다.
                 </p>
                 <dl className="case-nums">
-                  <div><dd>1,059</dd><dt>커밋</dt></div>
-                  <div><dd>1,353</dd><dt>테스트</dt></div>
-                  <div><dd>7.7만</dd><dt>코드 줄 수</dt></div>
+                  <div><dd>약 4개월</dd><dt>실계좌 연동 운영 중</dt></div>
+                  <div><dd>5분</dd><dt>공시·뉴스 판정 주기</dt></div>
+                  <div><dd>하루 2회</dd><dt>리포트 자동 발송</dt></div>
                 </dl>
                 <span className="case-more">자세히 보기</span>
               </div>

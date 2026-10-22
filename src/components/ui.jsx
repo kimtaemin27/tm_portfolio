@@ -5,7 +5,7 @@ import { Link } from 'react-router'
 
 /**
  * 프로젝트 페이지 첫 화면.
- * meta: [['기간', '2026.06 ~ 진행 중'], ...], stats: [['1,059', '커밋'], ...]
+ * meta: [['기간', '2026.06 ~ 진행 중'], ...], stats: [['5분', '판정 주기'], ...]
  * cover: { src, alt } 대표 화면, visual: 이미지 대신 넣을 요소
  */
 export function ProjectHero({ tag, ongoing, title, lead, stats, meta, chips, cover, visual }) {
