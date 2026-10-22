@@ -3,12 +3,11 @@ import { NavLink, Outlet, ScrollRestoration, useLocation } from 'react-router'
 
 export const EMAIL = 'ktm3628@naver.com'
 
+// 메뉴는 묶음만 둔다. 개인 프로젝트는 홈의 해당 묶음으로 이동하고, 각 프로젝트 페이지에서 활성으로 표시한다
 const NAV = [
-  { to: '/excel', label: 'ExcelReader' },
-  { to: '/convoy', label: 'Convoy' },
-  { to: '/stock', label: '주식 자동매매' },
-  { to: '/automation', label: '업무 자동화' },
-  { to: '/career', label: '경력' },
+  { to: { pathname: '/', hash: '#projects' }, label: '개인 프로젝트', paths: ['/model', '/convoy', '/stock', '/excel'] },
+  { to: '/automation', label: '업무 자동화', paths: ['/automation'] },
+  { to: '/career', label: '경력', paths: ['/career'] },
 ]
 
 /** .reveal 요소가 화면에 들어오면 .in을 붙여 떠오르게 한다 */
@@ -62,7 +61,7 @@ export default function Layout() {
           </button>
           <nav id="site-nav" className={open ? 'nav open' : 'nav'}>
             {NAV.map((n) => (
-              <NavLink key={n.to} to={n.to}>{n.label}</NavLink>
+              <NavLink key={n.label} to={n.to} onClick={() => setOpen(false)} className={() => (n.paths.includes(pathname) ? 'active' : undefined)}>{n.label}</NavLink>
             ))}
             <a className="nav-cta" href={`mailto:${EMAIL}`}>연락하기</a>
           </nav>

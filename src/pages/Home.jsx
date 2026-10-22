@@ -4,6 +4,7 @@ import pcMl from '../assets/images/pc_ml.webp'
 import figAibot from '../assets/images/fig_aibot.webp'
 import excelRules from '../assets/images/excel/rules.webp'
 import convoyBoard from '../assets/images/convoy/board.webp'
+import chartT1 from '../assets/images/model/chart_t1.webp'
 
 const CAREER = [
   { period: '2025.10 ~ 재직 중', company: '(주)준컴퍼니 (카랩)', desc: '알림 발송 기준 수립, 보험 연동·자동 정산, 운영 요청 검토', now: true },
@@ -53,17 +54,102 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="block" id="projects">
+      <section className="block" id="automation-cases">
         <div className="container">
           <div className="block-head reveal">
             <div>
-              <p className="eyebrow">Projects</p>
-              <h2>문제를 정의하고, 끝까지 만들었습니다</h2>
-              <p>프로젝트마다 해결하려던 문제, 내린 판단과 이유, 실패와 수정 과정을 정리했습니다.</p>
+              <p className="eyebrow">Work</p>
+              <h2>업무 자동화 사례</h2>
+              <p>회사 업무에서 진행한 자동화입니다. 해결한 문제, 구현 내용, 사용 결과 순서로 정리했습니다.</p>
             </div>
           </div>
 
           <div className="showcase">
+            <Link to="/automation" className="case-card reveal">
+              <div className="case-media"><img src={figAibot} alt="" /></div>
+              <div className="case-body">
+                <span className="pill pill-light">회사 업무 · 카랩</span>
+                <h3>업무 자동화 사례 4건</h3>
+                <p>
+                  흩어진 사내 요청을 AI가 정리하는 봇, 배포 내용을 현업 문장으로 바꿔 알리는 안내,
+                  Slack 웹훅 운영 알림, 외부 보험 플랫폼 연동과 자동 정산을 정리했습니다.
+                </p>
+                <dl className="case-nums">
+                  <div><dd>17건</dd><dt>흩어진 요청을 한 목록으로</dt></div>
+                  <div><dd>0건</dd><dt>보험 동기화 오류</dt></div>
+                </dl>
+                <span className="case-more">자세히 보기</span>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="block block-tight" id="projects">
+        <div className="container">
+          <div className="block-head reveal">
+            <div>
+              <p className="eyebrow">Projects</p>
+              <h2>개인 프로젝트</h2>
+              <p>프로젝트마다 해결하려던 문제, 내린 판단과 이유, 측정 결과와 한계를 정리했습니다.</p>
+            </div>
+          </div>
+
+          <div className="showcase">
+            <Link to="/model" className="case-card reveal">
+              <div className="case-media"><img src={chartT1} alt="" /></div>
+              <div className="case-body">
+                <span className="pill pill-light">개인 프로젝트 · Claude API 활용</span>
+                <h3>작업별 Claude 적정 모델 찾기</h3>
+                <p>
+                  모델, effort, 프롬프트 버전을 정답셋으로 비교하고 업무별 기본값을 고르는 CLI입니다.
+                  선정 규칙은 실행 전에 고정했고, 과금 호출 전에는 예상 비용을 보여 주고 승인받습니다.
+                </p>
+                <dl className="case-nums">
+                  <div><dd>2 / 3</dd><dt>가장 싼 Haiku가 기본값</dt></div>
+                  <div><dd>518개</dd><dt>테스트</dt></div>
+                  <div><dd>$4.37</dd><dt>실측 비용 (상한 $5)</dt></div>
+                </dl>
+                <span className="case-more">자세히 보기</span>
+              </div>
+            </Link>
+
+            <Link to="/convoy" className="case-card reveal">
+              <div className="case-media"><img src={convoyBoard} alt="" /></div>
+              <div className="case-body">
+                <span className="pill pill-light">개인 프로젝트 · Claude Code 활용</span>
+                <h3>멀티 에이전트 병렬 실행 엔진</h3>
+                <p>
+                  Claude Code 계획서의 독립 Task를 여러 AI 작업자에게 동시에 맡기고, 순서와 병합은 코드가 조율하는 실행 엔진입니다.
+                  순차 대 병렬을 12회차 실측했습니다.
+                </p>
+                <dl className="case-nums">
+                  <div><dd>53.1%</dd><dt>처음 측정 단축률</dt></div>
+                  <div><dd>0건</dd><dt>main 오염</dt></div>
+                  <div><dd>0건</dd><dt>조용한 실패</dt></div>
+                </dl>
+                <span className="case-more">자세히 보기</span>
+              </div>
+            </Link>
+
+            <Link to="/stock" className="case-card reveal">
+              <div className="case-media"><img src={pcMl} alt="" /></div>
+              <div className="case-body">
+                <span className="pill pill-light">개인 프로젝트 · 토스증권 Open API · Claude CLI</span>
+                <h3>금융 API 연동 자동화 시스템</h3>
+                <p>
+                  공시·뉴스 판정과 보유 종목 리포트에 AI를 접목하면서, 외부 텍스트를 다루는 AI가
+                  주문 환경에 닿지 않도록 실행 위치와 권한을 나눠 설계했습니다.
+                </p>
+                <dl className="case-nums">
+                  <div><dd>1,059</dd><dt>커밋</dt></div>
+                  <div><dd>1,353</dd><dt>테스트</dt></div>
+                  <div><dd>7.7만</dd><dt>코드 줄 수</dt></div>
+                </dl>
+                <span className="case-more">자세히 보기</span>
+              </div>
+            </Link>
+
             <Link to="/excel" className="case-card reveal">
               <div className="case-media"><img src={excelRules} alt="" /></div>
               <div className="case-body">
@@ -81,73 +167,7 @@ export default function Home() {
                 <span className="case-more">자세히 보기</span>
               </div>
             </Link>
-
-            <Link to="/convoy" className="case-card reveal">
-              <div className="case-media"><img src={convoyBoard} alt="" /></div>
-              <div className="case-body">
-                <span className="pill pill-light">개인 프로젝트 · AI 실행 엔진</span>
-                <h3>Convoy</h3>
-                <p>
-                  계획서의 독립 Task를 여러 AI 작업자에게 동시에 맡기고, 순서·잠금·병합은 코드가 맡는 실행 엔진입니다.
-                  기획 문서 10종, 구현, 순차 대 병렬 실측까지 직접 했습니다.
-                </p>
-                <dl className="case-nums">
-                  <div><dd>53.1%</dd><dt>소요시간 단축</dt></div>
-                  <div><dd>0건</dd><dt>main 오염</dt></div>
-                  <div><dd>0건</dd><dt>조용한 실패</dt></div>
-                </dl>
-                <span className="case-more">자세히 보기</span>
-              </div>
-            </Link>
-
-            <Link to="/stock" className="case-card reveal">
-              <div className="case-media"><img src={pcMl} alt="" /></div>
-              <div className="case-body">
-                <span className="pill pill-light">개인 프로젝트</span>
-                <h3>주식 자동매매 시스템</h3>
-                <p>
-                  공시·뉴스 판정과 보유 종목 리포트에 AI를 접목하면서, 외부 텍스트를 다루는 AI가
-                  주문 환경에 닿지 않도록 실행 위치와 권한을 나눠 설계했습니다.
-                </p>
-                <dl className="case-nums">
-                  <div><dd>1,059</dd><dt>커밋</dt></div>
-                  <div><dd>1,353</dd><dt>테스트</dt></div>
-                  <div><dd>7.7만</dd><dt>코드 줄 수</dt></div>
-                </dl>
-                <span className="case-more">자세히 보기</span>
-              </div>
-            </Link>
-
-            <Link to="/automation" className="case-card reveal">
-              <div className="case-media"><img src={figAibot} alt="" /></div>
-              <div className="case-body">
-                <span className="pill pill-light">회사 업무</span>
-                <h3>업무 자동화 사례</h3>
-                <p>
-                  흩어진 사내 요청을 AI가 정리하는 봇, 배포 내용을 현업 문장으로 바꿔 알리는 안내,
-                  운영 알림, 외부 보험 플랫폼 연동까지 4건을 정리했습니다.
-                </p>
-                <dl className="case-nums">
-                  <div><dd>17건</dd><dt>흩어진 요청을 한 목록으로</dt></div>
-                  <div><dd>0건</dd><dt>보험 동기화 오류</dt></div>
-                </dl>
-                <span className="case-more">자세히 보기</span>
-              </div>
-            </Link>
-
           </div>
-
-          <article className="plan-card reveal">
-            <div className="plan-card-head">
-              <span className="pill pill-warn">기획 단계</span>
-              <h3>promptbench</h3>
-            </div>
-            <p>
-              업무별 정답셋으로 Claude 모델, effort, 프롬프트 조합을 한꺼번에 돌려 정확도·비용·속도를 비교하고,
-              미리 정한 규칙으로 업무별 기본값을 고르는 CLI입니다. 과금 호출 전에는 예상 비용을 보여 주고 승인을 받습니다.
-            </p>
-            <p className="plan-card-status">기획 문서 8종 완료 · 구현과 실측 예정 (실측 예산 상한 $5)</p>
-          </article>
         </div>
       </section>
 

@@ -280,12 +280,12 @@ export default function Excel() {
             </div>
           </div>
           <p style={{ marginTop: 24 }}>
-            AI는 판단, 코드는 검증이라는 역할 분리는 <Link to="/stock">주식 자동매매 시스템</Link>에서도 같은 원칙으로 썼습니다.
+            AI는 판단, 코드는 검증이라는 역할 분리는 <Link to="/stock">금융 API 연동 자동화 시스템</Link>에서도 같은 원칙으로 썼습니다.
           </p>
         </Section>
       </Article>
 
-      <NextProject to="/convoy" label="다음 프로젝트" title="Convoy" desc="개인 프로젝트 · AI 작업자 여럿을 동시에 돌리고 조율은 코드가 맡는 실행 엔진" />
+      <NextProject to="/career" label="다음" title="경력" desc="회사별 업무와 보유 기술" />
     </>
   )
 }

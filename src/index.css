@@ -161,6 +161,8 @@ code {
 
 .block { padding: 112px 0; }
 .block-soft { background: var(--bg-soft); }
+.block-tight { padding-top: 0; }
+.block[id] { scroll-margin-top: 88px; }
 .block-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 48px; }
 .eyebrow { font-size: 0.82rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0 0 12px; }
 .block-head h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); font-weight: 800; }
@@ -194,16 +196,7 @@ code {
 .case-more { margin-top: auto; font-weight: 700; color: var(--accent-ink); }
 .case-more::after { content: ' →'; transition: margin 0.2s; }
 .case-card:hover .case-more::after { margin-left: 4px; }
-.plan-card {
-  margin-top: 28px; padding: 28px 32px; border-radius: 20px;
-  border: 1px dashed var(--line-strong, #e8c9b0); background: var(--surface);
-}
-.plan-card-head { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-.plan-card h3 { font-size: 1.3rem; font-weight: 800; margin: 0; }
-.plan-card p { color: var(--text-sub); margin: 12px 0 0; }
-.plan-card .plan-card-status { font-size: 0.88rem; font-weight: 600; color: var(--muted); }
 @media (max-width: 860px) {
-  .plan-card { padding: 24px 22px; }
   .case-card, .case-card:nth-child(even) { grid-template-columns: 1fr; }
   .case-card:nth-child(even) .case-media { order: 0; }
   .case-media { min-height: 220px; }

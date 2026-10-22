@@ -11,7 +11,7 @@ import figSlack from '../assets/images/fig_slack.webp'
 
 const CASES = [
   { id: 'request-bot', title: '사내 요청 AI 정리·분배 봇', status: '운영 중' },
-  { id: 'deploy-notice', title: 'AI 배포 안내', status: '2026.10 도입' },
+  { id: 'deploy-notice', title: 'AI 배포 안내', status: '도입 1개월 미만' },
   { id: 'ops-alert', title: 'Slack 웹훅 운영 알림', status: '운영 중' },
   { id: 'insurance', title: '외부 보험 플랫폼 연동·자동 정산', status: '운영 중' },
 ]
@@ -98,7 +98,7 @@ export default function Automation() {
         </Section>
 
         <Section no="02" title="AI 배포 안내" id="deploy-notice" kicker="CASE 02 · Slack">
-          <CaseHead status="2026.10 도입" tools={['Python', 'git hook', 'Claude CLI', 'Slack 웹훅']} />
+          <CaseHead status="도입 1개월 미만" tools={['Python', 'git hook', 'Claude CLI', 'Slack 웹훅']} />
           <h3>해결하려던 문제</h3>
           <Problems items={[
             '배포된 변경 사항이 개발자가 쓴 커밋 메시지로만 남아, CS·운영 담당자가 무엇이 바뀌었는지 바로 알기 어려웠습니다.',
@@ -217,11 +217,11 @@ export default function Automation() {
               ['국세청 연말정산 모듈', '자료 판독, 세액 계산, 제출 파일 생성 (비즈웍스)'],
             ]}
           />
-          <p>개인 프로젝트는 <Link to="/stock">주식 자동매매 시스템</Link>에 따로 정리했습니다.</p>
+          <p>개인 프로젝트는 <Link to="/model">작업별 Claude 적정 모델 찾기</Link>부터 따로 정리했습니다.</p>
         </Section>
       </Article>
 
-      <NextProject to="/career" label="다음" title="경력" desc="회사별 업무와 보유 기술" />
+      <NextProject to="/model" label="다음 프로젝트" title="작업별 Claude 적정 모델 찾기" desc="개인 프로젝트 · Claude API 활용" />
     </>
   )
 }

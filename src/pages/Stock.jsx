@@ -14,15 +14,15 @@ import figOps from '../assets/images/fig_ops.webp'
 export default function Stock() {
   return (
     <>
-      <title>주식 자동매매 시스템 | 김태민 포트폴리오</title>
+      <title>금융 API 연동 자동화 시스템 | 김태민 포트폴리오</title>
       <ProjectHero
-        tag="개인 프로젝트"
-        title="주식 자동매매 시스템"
-        lead="토스증권 Open API 기반의 주식 매매 자동화 시스템입니다. 공시·뉴스 판정과 보유 종목 리포트에 AI를 접목하면서, 외부 텍스트를 다루는 AI가 주문 환경에 닿지 않도록 구조를 나눴습니다."
+        tag="개인 프로젝트 · 토스증권 Open API · Claude CLI"
+        title="금융 API 연동 자동화 시스템"
+        lead="토스증권 Open API로 시세를 받고 주문을 연동하며, DART·SEC EDGAR 공시와 종목 뉴스를 따로 수집해 AI로 호재·악재를 판정하고 알리는 개인 운영 시스템입니다. 외부 텍스트를 다루는 AI가 주문 환경에 닿지 않도록 구조를 나눴습니다."
         meta={[
-          ['기간', '2026.06 ~ 진행 중'],
+          ['기간', '약 4개월 (운영 중)'],
           ['인원', '1인 (기획, 설계, 개발, 운영)'],
-          ['AI 활용', '개발 전 과정 Claude Code, 서비스 기능에 Claude CLI'],
+          ['AI 활용', '개발 전 과정에 Claude Code, 서비스 기능에는 Claude CLI 기반 판정·리포트 생성'],
         ]}
         chips={['Python', 'FastAPI', 'MySQL', 'Docker', 'Claude Code', 'Claude CLI', 'LightGBM']}
         cover={{ src: pcIntel, alt: 'PC 대시보드 종목 인텔 화면: 뉴스와 공시마다 AI 판정 결과가 붙어 있다' }}
@@ -199,7 +199,7 @@ export default function Stock() {
         </Section>
       </Article>
 
-      <NextProject to="/automation" label="다음 프로젝트" title="업무 자동화 사례" desc="회사 업무에서 진행한 자동화 4건" />
+      <NextProject to="/excel" label="다음 프로젝트" title="ExcelReader" desc="개인 프로젝트 · AI가 제안하고 사람이 승인하는 엑셀 정리 자동화" />
     </>
   )
 }
