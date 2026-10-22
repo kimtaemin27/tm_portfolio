@@ -55,7 +55,49 @@ export default function Automation() {
       />
 
       <Article>
-        <Section no="01" title="사내 요청 AI 정리·분배 봇" id="request-bot" kicker="CASE 01 · Slack">
+        <Section no="01" title="자동화할 일을 고른 기준" id="criteria">
+          <p>고른 기준은 두 가지였습니다.</p>
+          <ul>
+            <li><strong>틀리면 고객이나 돈에 바로 피해가 가는가.</strong> 오류가 고객과 CS를 거쳐 늦게 전달되거나 송금이 중복되는 일이 여기에 해당합니다.</li>
+            <li><strong>같은 확인과 전달을 사람이 매번 반복하는가.</strong> 흩어진 요청을 모으는 일, 배포 내용을 현업에 알리는 일이 여기에 해당합니다.</li>
+          </ul>
+          <Callout>
+            <p>
+              위험한 일은 먼저, 코드로 막았습니다. 소통 병목은 그 뒤에 AI로 풀었습니다.
+              AI는 틀려도 사람이 바로잡을 수 있는 정리와 서술에만 쓰고, 돈이 오가는 처리는 코드가 맡았습니다.
+            </p>
+          </Callout>
+
+          <h3>위험을 먼저 막음 (코드)</h3>
+          <Table
+            caption="위험을 먼저 막은 사례"
+            head={['사례', '먼저 한 이유', '확인한 것']}
+            rows={[
+              [<a key="l" href="#ops-alert">Slack 웹훅 운영 알림</a>, '외부 서비스 오류가 고객과 CS를 거쳐 늦게 전달됐고, 잔액이 떨어지면 발송이 멈췄습니다', '오류 시각, 위치, 원인을 바로 확인. 휴일에도 발송이 중단되지 않음'],
+              [<a key="l" href="#insurance">외부 보험 연동·자동 정산</a>, '진행 상태 기준이 서로 달랐고, 자동 지급에서 중복 송금이 생기면 안 됐습니다', '운영 반영 후 동기화 오류 0건, 테스트 159건'],
+            ]}
+          />
+
+          <h3>소통 병목을 AI로 풂</h3>
+          <Table
+            caption="소통 병목을 AI로 푼 사례"
+            head={['사례', '먼저 한 이유', '확인한 것']}
+            rows={[
+              [<a key="l" href="#deploy-notice">AI 배포 안내</a>, '변경 사항이 커밋 메시지로만 남아 현업이 무엇이 바뀌었는지 알기 어려웠습니다', '커밋 8건이 안내 5항목으로 정리됨, 테스트 13건'],
+              [<a key="l" href="#request-bot">사내 요청 AI 정리·분배 봇</a>, '요청이 여러 채널에 흩어져 놓치거나 담당 없이 남았습니다', '대기 요청 17건이 한 목록으로 모임. 관리자 영역 14건 쏠림과 7일 이상 방치 3건이 드러나 우선순위를 다시 조정'],
+            ]}
+          />
+
+          <h3>다른 팀으로 넓힐 때의 순서</h3>
+          <Flow steps={['배포 안내를 받는 팀 늘리기', '그 팀의 요청 채널을 수집 대상에 추가', '분류 기준을 그 팀 업무에 맞추기']} />
+          <ol>
+            <li>배포 안내를 받아 보는 팀을 먼저 늘립니다. 받는 쪽만 추가하면 되고 기존 흐름은 바뀌지 않습니다.</li>
+            <li>그 팀의 요청 채널을 요청 봇의 수집 대상에 넣습니다.</li>
+            <li>구분, 서비스, 우선순위 같은 분류 기준을 그 팀의 업무에 맞춥니다.</li>
+          </ol>
+        </Section>
+
+        <Section no="02" title="사내 요청 AI 정리·분배 봇" id="request-bot" kicker="CASE 01 · Slack">
           <CaseHead status="운영 중" tools={['Slack 봇', 'Slack 목록', '생성형 AI']} />
           <h3>해결하려던 문제</h3>
           <Problems items={[
@@ -87,7 +129,7 @@ export default function Automation() {
           <p>확인이 필요한 건이 15건으로 많았습니다. 요청이 접수될 때 화면 위치, 재현 방법, 기한 같은 필수 정보를 봇이 먼저 되묻도록 보완할 계획입니다.</p>
         </Section>
 
-        <Section no="02" title="AI 배포 안내" id="deploy-notice" kicker="CASE 02 · Slack">
+        <Section no="03" title="AI 배포 안내" id="deploy-notice" kicker="CASE 02 · Slack">
           <CaseHead status="도입 1개월 미만" tools={['Python', 'git hook', 'Claude CLI', 'Slack 웹훅']} />
           <h3>해결하려던 문제</h3>
           <Problems items={[
@@ -135,7 +177,7 @@ export default function Automation() {
           />
         </Section>
 
-        <Section no="03" title="Slack 웹훅 운영 알림" id="ops-alert" kicker="CASE 03 · 오류·주요 이벤트·잔액">
+        <Section no="04" title="Slack 웹훅 운영 알림" id="ops-alert" kicker="CASE 03 · 오류·주요 이벤트·잔액">
           <CaseHead status="운영 중" tools={['PHP', 'Slack 웹훅', '문자 발송']} />
           <h3>해결하려던 문제</h3>
           <Problems items={[
@@ -164,7 +206,7 @@ export default function Automation() {
           />
         </Section>
 
-        <Section no="04" title="외부 보험 플랫폼 연동·자동 정산" id="insurance" kicker="CASE 04 · API 연동">
+        <Section no="05" title="외부 보험 플랫폼 연동·자동 정산" id="insurance" kicker="CASE 04 · API 연동">
           <CaseHead status="운영 중" tools={['PHP', 'Laravel', 'MySQL', '토스페이먼츠 지급 API', '배치']} />
           <h3>해결하려던 문제</h3>
           <Problems items={[
