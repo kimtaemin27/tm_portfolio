@@ -240,7 +240,7 @@ export function Table({ head, rows, caption }) {
 }
 
 /** 이미지 한 장. 누르면 크게 본다 */
-function Zoomable({ src, alt, bare }) {
+export function Zoomable({ src, alt, bare }) {
   const dialog = useRef(null)
   return (
     <>

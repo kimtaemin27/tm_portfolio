@@ -109,12 +109,12 @@ export function SlackDeployNotice({ variant = 'first' }) {
 /** 공시 판정 악재 알림 */
 export function TelegramJudgeAlert() {
   return (
-    <div className="mk mk-tg" role="img" aria-label="텔레그램 악재 감지 알림 예시: 공시 제목, 점수, 확신도, 판정 사유">
+    <div className="mk mk-tg" role="img" aria-label="텔레그램 악재 감지 알림: 공시 제목, 점수, 확신도, 판정 사유">
       <div className="mk-tg-bubble">
-        <p><b>📰 악재 감지</b> [샘플전자]</p>
-        <p>공시 · 주요사항보고서(유상증자결정)</p>
+        <p><b>📰 악재 감지</b> [에코프로비엠]</p>
+        <p>공시 · [기재정정]주요사항보고서(유상증자결정)</p>
         <p>점수 -0.7 · 확신 60%</p>
-        <p>유상증자 결정으로 신주 발행에 따른 지분 희석 요인</p>
+        <p>유상증자 결정 주요사항보고서 정정으로 신주 발행에 따른 지분 희석 요인</p>
         <p className="mk-tg-gap"><b>매매에는 반영하지 않습니다</b> — 판단 참고용입니다.</p>
         <span className="mk-tg-time">3:15 PM</span>
       </div>
@@ -125,23 +125,23 @@ export function TelegramJudgeAlert() {
 /* ───────── PC 대시보드 ───────── */
 
 const NEWS = [
-  ['10-16 05:30', '샘플전자, 차세대 제품 공개…신규 수요 기대', '경제매체 A', '호재 · 기타'],
-  ['10-15 16:44', '샘플전자, 업계 협의체 부회장사 합류', '경제매체 B', '중립 · 기타'],
-  ['10-16 17:54', '관련 업종 전반 강세…수급 개선 기대', '경제매체 C', '중립 · 시황'],
-  ['10-16 16:38', '하루 만에 반등한 업종, 아직 안심 이른 이유', '경제매체 A', '중립 · 시황'],
-  ['10-16 16:28', '대외 변수 속 관련주 일제히 상승', '통신사 D', '중립 · 시황'],
-  ['10-16 10:57', '대형주 고점 대비 하락폭 비교', '경제매체 E', '중립 · 시황'],
+  ['10-16 05:30', '냉난방·온수까지 전기로…LG그룹, 차세대 히트펌프 선보인다', '머니투데이', '호재 · 기타'],
+  ['10-15 16:44', '현대차, AI·로봇산업협회 부회장사 합류', '헤럴드경제', '중립 · 기타'],
+  ['10-15 15:58', '현대차·퀄컴, 한국AI·로봇산업협회 합류', '이데일리', '중립 · 기타'],
+  ['10-16 17:54', "스타트업 군단, 누리호 발사 참여…민간 주도 '뉴스페이스' 개막", '한국경제', '중립 · 시황'],
+  ['10-16 16:38', '"이 정도면 사볼까?" 폭락 하루 만에 반등했는데…아직 안심 이른 이유', '머니투데이', '중립 · 시황'],
+  ['10-16 16:28', '중동 긴장 고조에 방산株 일제히 상승…한화에어로 7%대 급등(종합)', '뉴시스', '중립 · 시황'],
 ]
 
 const DISCLOSURES = [
-  ['2026-10-14', '단일판매·공급계약체결', '중립 · 수주'],
-  ['2026-10-01', '결산실적공시예고', '중립 · 기타'],
+  ['2026-10-14', '[기재정정]단일판매·공급계약체결 · 현대로템', '중립 · 수주'],
+  ['2026-10-01', '결산실적공시예고(안내공시) · 현대로템', '중립 · 기타'],
 ]
 
 /** 종목 인텔: 뉴스와 공시마다 AI 판정 결과 */
 export function DashIntel() {
   return (
-    <div className="mk mk-dash mk-intel" role="img" aria-label="PC 대시보드 종목 인텔 예시: 뉴스와 공시마다 AI 판정 결과(호재·악재·중립, 분류)가 붙어 있다">
+    <div className="mk mk-dash mk-intel" role="img" aria-label="PC 대시보드 종목 인텔: 뉴스와 공시마다 AI 판정 결과(호재·악재·중립, 분류)가 붙어 있다">
       <div className="mk-intel-head">뉴스 (클릭 → 기사)</div>
       <ul className="mk-intel-list">
         {NEWS.map(([t, title, src, tag]) => (
@@ -168,12 +168,12 @@ export function DashIntel() {
 }
 
 const ML_ROWS = [
-  ['Sample Freight (SMPF)', '$198.34', '$208.26', 80],
-  ['Sample Aero (SMPA)', '$1,192.60', '$1,252.23', 78],
-  ['Sample Climate (SMPC)', '$389.06', '$408.51', 78],
-  ['Sample Water (SMPW)', '$112.81', '$118.45', 75],
-  ['Sample Goods (SMPG)', '$68.07', '$71.47', 75],
-  ['Sample Insure (SMPI)', '$68.48', '$71.90', 75],
+  ['Old Dominion (ODFL)', '$198.34', '$208.26', 80],
+  ['TransDigm Group (TDG)', '$1,192.6', '$1,252.23', 78],
+  ['Lennox International (LII)', '$389.06', '$408.51', 78],
+  ['Xylem Inc. (XYL)', '$112.81', '$118.45', 75],
+  ['Altria (MO)', '$68.07', '$71.47', 75],
+  ['W. R. Berkley Corporation (WRB)', '$68.48', '$71.9', 75],
 ]
 
 const ML_MENU = ['대시보드', '통계 & AI', '종목 스크리너', '종목 인텔', '장기 차트 분석', '스윙 도달확률 예측']
@@ -181,9 +181,9 @@ const ML_MENU = ['대시보드', '통계 & AI', '종목 스크리너', '종목 �
 /** 예측 모델 화면: LightGBM 도달확률 */
 export function DashML() {
   return (
-    <div className="mk mk-dash mk-ml" role="img" aria-label="PC 대시보드 예측 모델 예시: 종목별 LightGBM 도달확률 (가상 종목)">
+    <div className="mk mk-dash mk-ml" role="img" aria-label="PC 대시보드 예측 모델 화면: 종목별 LightGBM 도달확률">
       <aside className="mk-ml-side">
-        <div className="mk-ml-brand">Stock Bot</div>
+        <div className="mk-ml-brand">Toss Stock Bot</div>
         {ML_MENU.map((m) => <div key={m} className={m.startsWith('스윙') ? 'mk-ml-menu on' : 'mk-ml-menu'}>{m}</div>)}
       </aside>
       <div className="mk-ml-main">
