@@ -40,7 +40,6 @@ export default function Home() {
             <div><dd>3년 10개월</dd><dt>총 경력</dt></div>
             <div><dd>400~500곳</dd><dt>멀티테넌트 ERP 고객사</dt></div>
             <div><dd>11종</dd><dt>결제·정산·인증·공시 외부 API 연동</dt></div>
-            <div><dd>4개</dd><dt>기획부터 실측까지 끝낸 개인 프로젝트</dt></div>
           </dl>
         </div>
       </section>

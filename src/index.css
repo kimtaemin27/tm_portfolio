@@ -151,7 +151,7 @@ code {
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
 
 .hero-stats {
-  display: grid; grid-template-columns: repeat(4, 1fr); margin: 88px 0 0; padding: 28px 0 0;
+  display: grid; grid-template-columns: repeat(3, 1fr); margin: 88px 0 0; padding: 28px 0 0;
   border-top: 1px solid rgba(43, 29, 20, 0.1);
 }
 .hero-stats div { padding-right: 16px; }
